@@ -1,0 +1,751 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E721801215AB637F00C61C03 /* libKiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E721801115AB637F00C61C03 /* libKiwi.a */; };
+		E72F2F3715A9A92B003324C3 /* NSObject+FKFormAttributeMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022AB15A98F5F00941942 /* NSObject+FKFormAttributeMapping.m */; };
+		E7A0216215A98EF400941942 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A0216115A98EF400941942 /* UIKit.framework */; };
+		E7A0216415A98EF400941942 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A0216315A98EF400941942 /* Foundation.framework */; };
+		E7A0216615A98EF400941942 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A0216515A98EF400941942 /* CoreGraphics.framework */; };
+		E7A0216815A98EF400941942 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A0216715A98EF400941942 /* CoreData.framework */; };
+		E7A0216E15A98EF400941942 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7A0216C15A98EF400941942 /* InfoPlist.strings */; };
+		E7A0217015A98EF400941942 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0216F15A98EF400941942 /* main.m */; };
+		E7A0217415A98EF400941942 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0217315A98EF400941942 /* AppDelegate.m */; };
+		E7A0217715A98EF400941942 /* FormKitDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7A0217515A98EF400941942 /* FormKitDemo.xcdatamodeld */; };
+		E7A0217F15A98EF400941942 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A0217E15A98EF400941942 /* SenTestingKit.framework */; };
+		E7A0218015A98EF400941942 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A0216115A98EF400941942 /* UIKit.framework */; };
+		E7A0218115A98EF400941942 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A0216315A98EF400941942 /* Foundation.framework */; };
+		E7A0218215A98EF400941942 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A0216715A98EF400941942 /* CoreData.framework */; };
+		E7A0218A15A98EF400941942 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7A0218815A98EF400941942 /* InfoPlist.strings */; };
+		E7A022AC15A98F5F00941942 /* FKFormAttributeMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0227F15A98F5F00941942 /* FKFormAttributeMapping.m */; };
+		E7A022AD15A98F5F00941942 /* FKFormMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0228115A98F5F00941942 /* FKFormMapper.m */; };
+		E7A022AE15A98F5F00941942 /* FKFormMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0228315A98F5F00941942 /* FKFormMapping.m */; };
+		E7A022AF15A98F5F00941942 /* FKFormModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0228615A98F5F00941942 /* FKFormModel.m */; };
+		E7A022B015A98F5F00941942 /* FKSectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0228815A98F5F00941942 /* FKSectionObject.m */; };
+		E7A022B115A98F5F00941942 /* FKBadgeField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0228C15A98F5F00941942 /* FKBadgeField.m */; };
+		E7A022B215A98F5F00941942 /* FKBigTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0228E15A98F5F00941942 /* FKBigTextField.m */; };
+		E7A022B315A98F5F00941942 /* FKButtonField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0229015A98F5F00941942 /* FKButtonField.m */; };
+		E7A022B415A98F5F00941942 /* FKFloatField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0229215A98F5F00941942 /* FKFloatField.m */; };
+		E7A022B515A98F5F00941942 /* FKImageField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0229515A98F5F00941942 /* FKImageField.m */; };
+		E7A022B615A98F5F00941942 /* FKIntegerField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0229715A98F5F00941942 /* FKIntegerField.m */; };
+		E7A022B715A98F5F00941942 /* FKLabelField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0229915A98F5F00941942 /* FKLabelField.m */; };
+		E7A022B815A98F5F00941942 /* FKPasswordTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0229B15A98F5F00941942 /* FKPasswordTextField.m */; };
+		E7A022B915A98F5F00941942 /* FKSaveButtonField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0229D15A98F5F00941942 /* FKSaveButtonField.m */; };
+		E7A022BA15A98F5F00941942 /* FKSimpleField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0229F15A98F5F00941942 /* FKSimpleField.m */; };
+		E7A022BB15A98F5F00941942 /* FKSliderField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022A115A98F5F00941942 /* FKSliderField.m */; };
+		E7A022BC15A98F5F00941942 /* FKSwitchField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022A315A98F5F00941942 /* FKSwitchField.m */; };
+		E7A022BD15A98F5F00941942 /* FKTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022A515A98F5F00941942 /* FKTextField.m */; };
+		E7A022BE15A98F5F00941942 /* FKTextViewField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022A715A98F5F00941942 /* FKTextViewField.m */; };
+		E7A022BF15A98F5F00941942 /* FKValueViewField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022A915A98F5F00941942 /* FKValueViewField.m */; };
+		E7A022C015A98F5F00941942 /* NSObject+FKFormAttributeMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022AB15A98F5F00941942 /* NSObject+FKFormAttributeMapping.m */; };
+		E7A022D715A994D100941942 /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022C515A994D100941942 /* AbstractActionSheetPicker.m */; };
+		E7A022D815A994D100941942 /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022C715A994D100941942 /* ActionSheetCustomPicker.m */; };
+		E7A022D915A994D100941942 /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022CA15A994D100941942 /* ActionSheetDatePicker.m */; };
+		E7A022DA15A994D100941942 /* ActionSheetDistancePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022CC15A994D100941942 /* ActionSheetDistancePicker.m */; };
+		E7A022DB15A994D100941942 /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022CE15A994D100941942 /* ActionSheetStringPicker.m */; };
+		E7A022DC15A994D100941942 /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022D015A994D100941942 /* DistancePickerView.m */; };
+		E7A022DD15A994D100941942 /* BWLongTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022D315A994D100941942 /* BWLongTextViewController.m */; };
+		E7A022DE15A994D100941942 /* BWSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022D615A994D100941942 /* BWSelectViewController.m */; };
+		E7A022E115A9970E00941942 /* UITableViewCell+FormKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022E015A9970D00941942 /* UITableViewCell+FormKit.m */; };
+		E7A022E415A9A22E00941942 /* UIView+FormKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022E315A9A22D00941942 /* UIView+FormKit.m */; };
+		E7A022ED15A9A34B00941942 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022E615A9A34B00941942 /* Comment.m */; };
+		E7A022EE15A9A34B00941942 /* FormTableViewExampleController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022E815A9A34B00941942 /* FormTableViewExampleController.m */; };
+		E7A022EF15A9A34B00941942 /* Genre.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022EA15A9A34B00941942 /* Genre.m */; };
+		E7A022F015A9A34B00941942 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022EC15A9A34B00941942 /* Movie.m */; };
+		E7A022F515A9A5A600941942 /* FKFormMapperSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022F215A9A5A600941942 /* FKFormMapperSpecs.m */; };
+		E7A022F615A9A5A600941942 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022F415A9A5A600941942 /* Book.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E7A0218315A98EF400941942 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E7A0215415A98EF400941942 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E7A0215C15A98EF400941942;
+			remoteInfo = FormKitDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E721801115AB637F00C61C03 /* libKiwi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKiwi.a; path = "../dev/xcodeBuilds/Release-iphoneos/libKiwi.a"; sourceTree = "<group>"; };
+		E7A0215D15A98EF400941942 /* FormKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7A0216115A98EF400941942 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E7A0216315A98EF400941942 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E7A0216515A98EF400941942 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E7A0216715A98EF400941942 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E7A0216B15A98EF400941942 /* FormKitDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FormKitDemo-Info.plist"; sourceTree = "<group>"; };
+		E7A0216D15A98EF400941942 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E7A0216F15A98EF400941942 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E7A0217115A98EF400941942 /* FormKitDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FormKitDemo-Prefix.pch"; sourceTree = "<group>"; };
+		E7A0217215A98EF400941942 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E7A0217315A98EF400941942 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E7A0217615A98EF400941942 /* FormKitDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FormKitDemo.xcdatamodel; sourceTree = "<group>"; };
+		E7A0217D15A98EF400941942 /* FormKitDemoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FormKitDemoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7A0217E15A98EF400941942 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		E7A0218715A98EF400941942 /* FormKitDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FormKitDemoTests-Info.plist"; sourceTree = "<group>"; };
+		E7A0218915A98EF400941942 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E7A0227D15A98F5F00941942 /* FormKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormKit.h; sourceTree = "<group>"; };
+		E7A0227E15A98F5F00941942 /* FKFormAttributeMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKFormAttributeMapping.h; sourceTree = "<group>"; };
+		E7A0227F15A98F5F00941942 /* FKFormAttributeMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKFormAttributeMapping.m; sourceTree = "<group>"; };
+		E7A0228015A98F5F00941942 /* FKFormMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKFormMapper.h; sourceTree = "<group>"; };
+		E7A0228115A98F5F00941942 /* FKFormMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKFormMapper.m; sourceTree = "<group>"; };
+		E7A0228215A98F5F00941942 /* FKFormMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKFormMapping.h; sourceTree = "<group>"; };
+		E7A0228315A98F5F00941942 /* FKFormMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKFormMapping.m; sourceTree = "<group>"; };
+		E7A0228415A98F5F00941942 /* FKBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKBlocks.h; sourceTree = "<group>"; };
+		E7A0228515A98F5F00941942 /* FKFormModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKFormModel.h; sourceTree = "<group>"; };
+		E7A0228615A98F5F00941942 /* FKFormModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKFormModel.m; sourceTree = "<group>"; };
+		E7A0228715A98F5F00941942 /* FKSectionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKSectionObject.h; sourceTree = "<group>"; };
+		E7A0228815A98F5F00941942 /* FKSectionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKSectionObject.m; sourceTree = "<group>"; };
+		E7A0228A15A98F5F00941942 /* FKFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKFields.h; sourceTree = "<group>"; };
+		E7A0228B15A98F5F00941942 /* FKBadgeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKBadgeField.h; sourceTree = "<group>"; };
+		E7A0228C15A98F5F00941942 /* FKBadgeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKBadgeField.m; sourceTree = "<group>"; };
+		E7A0228D15A98F5F00941942 /* FKBigTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKBigTextField.h; sourceTree = "<group>"; };
+		E7A0228E15A98F5F00941942 /* FKBigTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKBigTextField.m; sourceTree = "<group>"; };
+		E7A0228F15A98F5F00941942 /* FKButtonField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKButtonField.h; sourceTree = "<group>"; };
+		E7A0229015A98F5F00941942 /* FKButtonField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKButtonField.m; sourceTree = "<group>"; };
+		E7A0229115A98F5F00941942 /* FKFloatField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKFloatField.h; sourceTree = "<group>"; };
+		E7A0229215A98F5F00941942 /* FKFloatField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKFloatField.m; sourceTree = "<group>"; };
+		E7A0229315A98F5F00941942 /* FKFieldsBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKFieldsBlocks.h; sourceTree = "<group>"; };
+		E7A0229415A98F5F00941942 /* FKImageField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKImageField.h; sourceTree = "<group>"; };
+		E7A0229515A98F5F00941942 /* FKImageField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKImageField.m; sourceTree = "<group>"; };
+		E7A0229615A98F5F00941942 /* FKIntegerField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKIntegerField.h; sourceTree = "<group>"; };
+		E7A0229715A98F5F00941942 /* FKIntegerField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKIntegerField.m; sourceTree = "<group>"; };
+		E7A0229815A98F5F00941942 /* FKLabelField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKLabelField.h; sourceTree = "<group>"; };
+		E7A0229915A98F5F00941942 /* FKLabelField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKLabelField.m; sourceTree = "<group>"; };
+		E7A0229A15A98F5F00941942 /* FKPasswordTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKPasswordTextField.h; sourceTree = "<group>"; };
+		E7A0229B15A98F5F00941942 /* FKPasswordTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKPasswordTextField.m; sourceTree = "<group>"; };
+		E7A0229C15A98F5F00941942 /* FKSaveButtonField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKSaveButtonField.h; sourceTree = "<group>"; };
+		E7A0229D15A98F5F00941942 /* FKSaveButtonField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKSaveButtonField.m; sourceTree = "<group>"; };
+		E7A0229E15A98F5F00941942 /* FKSimpleField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKSimpleField.h; sourceTree = "<group>"; };
+		E7A0229F15A98F5F00941942 /* FKSimpleField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKSimpleField.m; sourceTree = "<group>"; };
+		E7A022A015A98F5F00941942 /* FKSliderField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKSliderField.h; sourceTree = "<group>"; };
+		E7A022A115A98F5F00941942 /* FKSliderField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKSliderField.m; sourceTree = "<group>"; };
+		E7A022A215A98F5F00941942 /* FKSwitchField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKSwitchField.h; sourceTree = "<group>"; };
+		E7A022A315A98F5F00941942 /* FKSwitchField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKSwitchField.m; sourceTree = "<group>"; };
+		E7A022A415A98F5F00941942 /* FKTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKTextField.h; sourceTree = "<group>"; };
+		E7A022A515A98F5F00941942 /* FKTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKTextField.m; sourceTree = "<group>"; };
+		E7A022A615A98F5F00941942 /* FKTextViewField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKTextViewField.h; sourceTree = "<group>"; };
+		E7A022A715A98F5F00941942 /* FKTextViewField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKTextViewField.m; sourceTree = "<group>"; };
+		E7A022A815A98F5F00941942 /* FKValueViewField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKValueViewField.h; sourceTree = "<group>"; };
+		E7A022A915A98F5F00941942 /* FKValueViewField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKValueViewField.m; sourceTree = "<group>"; };
+		E7A022AA15A98F5F00941942 /* NSObject+FKFormAttributeMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FKFormAttributeMapping.h"; sourceTree = "<group>"; };
+		E7A022AB15A98F5F00941942 /* NSObject+FKFormAttributeMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FKFormAttributeMapping.m"; sourceTree = "<group>"; };
+		E7A022C115A992B400941942 /* FKMacrosDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKMacrosDefinitions.h; sourceTree = "<group>"; };
+		E7A022C415A994D100941942 /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
+		E7A022C515A994D100941942 /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
+		E7A022C615A994D100941942 /* ActionSheetCustomPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPicker.h; sourceTree = "<group>"; };
+		E7A022C715A994D100941942 /* ActionSheetCustomPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetCustomPicker.m; sourceTree = "<group>"; };
+		E7A022C815A994D100941942 /* ActionSheetCustomPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPickerDelegate.h; sourceTree = "<group>"; };
+		E7A022C915A994D100941942 /* ActionSheetDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDatePicker.h; sourceTree = "<group>"; };
+		E7A022CA15A994D100941942 /* ActionSheetDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDatePicker.m; sourceTree = "<group>"; };
+		E7A022CB15A994D100941942 /* ActionSheetDistancePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDistancePicker.h; sourceTree = "<group>"; };
+		E7A022CC15A994D100941942 /* ActionSheetDistancePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDistancePicker.m; sourceTree = "<group>"; };
+		E7A022CD15A994D100941942 /* ActionSheetStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetStringPicker.h; sourceTree = "<group>"; };
+		E7A022CE15A994D100941942 /* ActionSheetStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetStringPicker.m; sourceTree = "<group>"; };
+		E7A022CF15A994D100941942 /* DistancePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistancePickerView.h; sourceTree = "<group>"; };
+		E7A022D015A994D100941942 /* DistancePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePickerView.m; sourceTree = "<group>"; };
+		E7A022D215A994D100941942 /* BWLongTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWLongTextViewController.h; sourceTree = "<group>"; };
+		E7A022D315A994D100941942 /* BWLongTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWLongTextViewController.m; sourceTree = "<group>"; };
+		E7A022D515A994D100941942 /* BWSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWSelectViewController.h; sourceTree = "<group>"; };
+		E7A022D615A994D100941942 /* BWSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWSelectViewController.m; sourceTree = "<group>"; };
+		E7A022DF15A9970D00941942 /* UITableViewCell+FormKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+FormKit.h"; sourceTree = "<group>"; };
+		E7A022E015A9970D00941942 /* UITableViewCell+FormKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+FormKit.m"; sourceTree = "<group>"; };
+		E7A022E215A9A22D00941942 /* UIView+FormKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FormKit.h"; sourceTree = "<group>"; };
+		E7A022E315A9A22D00941942 /* UIView+FormKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FormKit.m"; sourceTree = "<group>"; };
+		E7A022E515A9A34B00941942 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		E7A022E615A9A34B00941942 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		E7A022E715A9A34B00941942 /* FormTableViewExampleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormTableViewExampleController.h; sourceTree = "<group>"; };
+		E7A022E815A9A34B00941942 /* FormTableViewExampleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormTableViewExampleController.m; sourceTree = "<group>"; };
+		E7A022E915A9A34B00941942 /* Genre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Genre.h; sourceTree = "<group>"; };
+		E7A022EA15A9A34B00941942 /* Genre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Genre.m; sourceTree = "<group>"; };
+		E7A022EB15A9A34B00941942 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		E7A022EC15A9A34B00941942 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		E7A022F215A9A5A600941942 /* FKFormMapperSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKFormMapperSpecs.m; sourceTree = "<group>"; };
+		E7A022F315A9A5A600941942 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		E7A022F415A9A5A600941942 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E7A0215A15A98EF400941942 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7A0216215A98EF400941942 /* UIKit.framework in Frameworks */,
+				E7A0216415A98EF400941942 /* Foundation.framework in Frameworks */,
+				E7A0216615A98EF400941942 /* CoreGraphics.framework in Frameworks */,
+				E7A0216815A98EF400941942 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7A0217915A98EF400941942 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E721801215AB637F00C61C03 /* libKiwi.a in Frameworks */,
+				E7A0217F15A98EF400941942 /* SenTestingKit.framework in Frameworks */,
+				E7A0218015A98EF400941942 /* UIKit.framework in Frameworks */,
+				E7A0218115A98EF400941942 /* Foundation.framework in Frameworks */,
+				E7A0218215A98EF400941942 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E7A0215215A98EF400941942 = {
+			isa = PBXGroup;
+			children = (
+				E7A022F115A9A5A500941942 /* Tests */,
+				E7A022C215A994D000941942 /* Vendor */,
+				E7A0227C15A98F5F00941942 /* FormKit */,
+				E7A0216915A98EF400941942 /* FormKitDemo */,
+				E7A0218515A98EF400941942 /* FormKitDemoTests */,
+				E7A0216015A98EF400941942 /* Frameworks */,
+				E7A0215E15A98EF400941942 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E7A0215E15A98EF400941942 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E7A0215D15A98EF400941942 /* FormKitDemo.app */,
+				E7A0217D15A98EF400941942 /* FormKitDemoTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E7A0216015A98EF400941942 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E721801115AB637F00C61C03 /* libKiwi.a */,
+				E7A0216115A98EF400941942 /* UIKit.framework */,
+				E7A0216315A98EF400941942 /* Foundation.framework */,
+				E7A0216515A98EF400941942 /* CoreGraphics.framework */,
+				E7A0216715A98EF400941942 /* CoreData.framework */,
+				E7A0217E15A98EF400941942 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E7A0216915A98EF400941942 /* FormKitDemo */ = {
+			isa = PBXGroup;
+			children = (
+				E7A022E515A9A34B00941942 /* Comment.h */,
+				E7A022E615A9A34B00941942 /* Comment.m */,
+				E7A022E715A9A34B00941942 /* FormTableViewExampleController.h */,
+				E7A022E815A9A34B00941942 /* FormTableViewExampleController.m */,
+				E7A022E915A9A34B00941942 /* Genre.h */,
+				E7A022EA15A9A34B00941942 /* Genre.m */,
+				E7A022EB15A9A34B00941942 /* Movie.h */,
+				E7A022EC15A9A34B00941942 /* Movie.m */,
+				E7A0217215A98EF400941942 /* AppDelegate.h */,
+				E7A0217315A98EF400941942 /* AppDelegate.m */,
+				E7A0217515A98EF400941942 /* FormKitDemo.xcdatamodeld */,
+				E7A0216A15A98EF400941942 /* Supporting Files */,
+			);
+			path = FormKitDemo;
+			sourceTree = "<group>";
+		};
+		E7A0216A15A98EF400941942 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E7A0216B15A98EF400941942 /* FormKitDemo-Info.plist */,
+				E7A0216C15A98EF400941942 /* InfoPlist.strings */,
+				E7A0216F15A98EF400941942 /* main.m */,
+				E7A0217115A98EF400941942 /* FormKitDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E7A0218515A98EF400941942 /* FormKitDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				E7A0218615A98EF400941942 /* Supporting Files */,
+			);
+			path = FormKitDemoTests;
+			sourceTree = "<group>";
+		};
+		E7A0218615A98EF400941942 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E7A0218715A98EF400941942 /* FormKitDemoTests-Info.plist */,
+				E7A0218815A98EF400941942 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E7A0227C15A98F5F00941942 /* FormKit */ = {
+			isa = PBXGroup;
+			children = (
+				E7A022E215A9A22D00941942 /* UIView+FormKit.h */,
+				E7A022E315A9A22D00941942 /* UIView+FormKit.m */,
+				E7A022DF15A9970D00941942 /* UITableViewCell+FormKit.h */,
+				E7A022E015A9970D00941942 /* UITableViewCell+FormKit.m */,
+				E7A022C115A992B400941942 /* FKMacrosDefinitions.h */,
+				E7A0227D15A98F5F00941942 /* FormKit.h */,
+				E7A0227E15A98F5F00941942 /* FKFormAttributeMapping.h */,
+				E7A0227F15A98F5F00941942 /* FKFormAttributeMapping.m */,
+				E7A0228015A98F5F00941942 /* FKFormMapper.h */,
+				E7A0228115A98F5F00941942 /* FKFormMapper.m */,
+				E7A0228215A98F5F00941942 /* FKFormMapping.h */,
+				E7A0228315A98F5F00941942 /* FKFormMapping.m */,
+				E7A0228415A98F5F00941942 /* FKBlocks.h */,
+				E7A0228515A98F5F00941942 /* FKFormModel.h */,
+				E7A0228615A98F5F00941942 /* FKFormModel.m */,
+				E7A0228715A98F5F00941942 /* FKSectionObject.h */,
+				E7A0228815A98F5F00941942 /* FKSectionObject.m */,
+				E7A0228915A98F5F00941942 /* Fields */,
+				E7A022AA15A98F5F00941942 /* NSObject+FKFormAttributeMapping.h */,
+				E7A022AB15A98F5F00941942 /* NSObject+FKFormAttributeMapping.m */,
+			);
+			path = FormKit;
+			sourceTree = "<group>";
+		};
+		E7A0228915A98F5F00941942 /* Fields */ = {
+			isa = PBXGroup;
+			children = (
+				E7A0228A15A98F5F00941942 /* FKFields.h */,
+				E7A0228B15A98F5F00941942 /* FKBadgeField.h */,
+				E7A0228C15A98F5F00941942 /* FKBadgeField.m */,
+				E7A0228D15A98F5F00941942 /* FKBigTextField.h */,
+				E7A0228E15A98F5F00941942 /* FKBigTextField.m */,
+				E7A0228F15A98F5F00941942 /* FKButtonField.h */,
+				E7A0229015A98F5F00941942 /* FKButtonField.m */,
+				E7A0229115A98F5F00941942 /* FKFloatField.h */,
+				E7A0229215A98F5F00941942 /* FKFloatField.m */,
+				E7A0229315A98F5F00941942 /* FKFieldsBlocks.h */,
+				E7A0229415A98F5F00941942 /* FKImageField.h */,
+				E7A0229515A98F5F00941942 /* FKImageField.m */,
+				E7A0229615A98F5F00941942 /* FKIntegerField.h */,
+				E7A0229715A98F5F00941942 /* FKIntegerField.m */,
+				E7A0229815A98F5F00941942 /* FKLabelField.h */,
+				E7A0229915A98F5F00941942 /* FKLabelField.m */,
+				E7A0229A15A98F5F00941942 /* FKPasswordTextField.h */,
+				E7A0229B15A98F5F00941942 /* FKPasswordTextField.m */,
+				E7A0229C15A98F5F00941942 /* FKSaveButtonField.h */,
+				E7A0229D15A98F5F00941942 /* FKSaveButtonField.m */,
+				E7A0229E15A98F5F00941942 /* FKSimpleField.h */,
+				E7A0229F15A98F5F00941942 /* FKSimpleField.m */,
+				E7A022A015A98F5F00941942 /* FKSliderField.h */,
+				E7A022A115A98F5F00941942 /* FKSliderField.m */,
+				E7A022A215A98F5F00941942 /* FKSwitchField.h */,
+				E7A022A315A98F5F00941942 /* FKSwitchField.m */,
+				E7A022A415A98F5F00941942 /* FKTextField.h */,
+				E7A022A515A98F5F00941942 /* FKTextField.m */,
+				E7A022A615A98F5F00941942 /* FKTextViewField.h */,
+				E7A022A715A98F5F00941942 /* FKTextViewField.m */,
+				E7A022A815A98F5F00941942 /* FKValueViewField.h */,
+				E7A022A915A98F5F00941942 /* FKValueViewField.m */,
+			);
+			path = Fields;
+			sourceTree = "<group>";
+		};
+		E7A022C215A994D000941942 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				E7A022C315A994D100941942 /* ActionSheetPicker */,
+				E7A022D115A994D100941942 /* BWLongTextViewController */,
+				E7A022D415A994D100941942 /* BWSelectViewController */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		E7A022C315A994D100941942 /* ActionSheetPicker */ = {
+			isa = PBXGroup;
+			children = (
+				E7A022C415A994D100941942 /* AbstractActionSheetPicker.h */,
+				E7A022C515A994D100941942 /* AbstractActionSheetPicker.m */,
+				E7A022C615A994D100941942 /* ActionSheetCustomPicker.h */,
+				E7A022C715A994D100941942 /* ActionSheetCustomPicker.m */,
+				E7A022C815A994D100941942 /* ActionSheetCustomPickerDelegate.h */,
+				E7A022C915A994D100941942 /* ActionSheetDatePicker.h */,
+				E7A022CA15A994D100941942 /* ActionSheetDatePicker.m */,
+				E7A022CB15A994D100941942 /* ActionSheetDistancePicker.h */,
+				E7A022CC15A994D100941942 /* ActionSheetDistancePicker.m */,
+				E7A022CD15A994D100941942 /* ActionSheetStringPicker.h */,
+				E7A022CE15A994D100941942 /* ActionSheetStringPicker.m */,
+				E7A022CF15A994D100941942 /* DistancePickerView.h */,
+				E7A022D015A994D100941942 /* DistancePickerView.m */,
+			);
+			path = ActionSheetPicker;
+			sourceTree = "<group>";
+		};
+		E7A022D115A994D100941942 /* BWLongTextViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E7A022D215A994D100941942 /* BWLongTextViewController.h */,
+				E7A022D315A994D100941942 /* BWLongTextViewController.m */,
+			);
+			path = BWLongTextViewController;
+			sourceTree = "<group>";
+		};
+		E7A022D415A994D100941942 /* BWSelectViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E7A022D515A994D100941942 /* BWSelectViewController.h */,
+				E7A022D615A994D100941942 /* BWSelectViewController.m */,
+			);
+			path = BWSelectViewController;
+			sourceTree = "<group>";
+		};
+		E7A022F115A9A5A500941942 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E7A022F215A9A5A600941942 /* FKFormMapperSpecs.m */,
+				E7A022F315A9A5A600941942 /* Book.h */,
+				E7A022F415A9A5A600941942 /* Book.m */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E7A0215C15A98EF400941942 /* FormKitDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7A0219015A98EF400941942 /* Build configuration list for PBXNativeTarget "FormKitDemo" */;
+			buildPhases = (
+				E7A0215915A98EF400941942 /* Sources */,
+				E7A0215A15A98EF400941942 /* Frameworks */,
+				E7A0215B15A98EF400941942 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FormKitDemo;
+			productName = FormKitDemo;
+			productReference = E7A0215D15A98EF400941942 /* FormKitDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E7A0217C15A98EF400941942 /* FormKitDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7A0219315A98EF400941942 /* Build configuration list for PBXNativeTarget "FormKitDemoTests" */;
+			buildPhases = (
+				E7A0217815A98EF400941942 /* Sources */,
+				E7A0217915A98EF400941942 /* Frameworks */,
+				E7A0217A15A98EF400941942 /* Resources */,
+				E7A0217B15A98EF400941942 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E7A0218415A98EF400941942 /* PBXTargetDependency */,
+			);
+			name = FormKitDemoTests;
+			productName = FormKitDemoTests;
+			productReference = E7A0217D15A98EF400941942 /* FormKitDemoTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E7A0215415A98EF400941942 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = E7A0215715A98EF400941942 /* Build configuration list for PBXProject "FormKitDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E7A0215215A98EF400941942;
+			productRefGroup = E7A0215E15A98EF400941942 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E7A0215C15A98EF400941942 /* FormKitDemo */,
+				E7A0217C15A98EF400941942 /* FormKitDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E7A0215B15A98EF400941942 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7A0216E15A98EF400941942 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7A0217A15A98EF400941942 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7A0218A15A98EF400941942 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E7A0217B15A98EF400941942 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E7A0215915A98EF400941942 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7A0217015A98EF400941942 /* main.m in Sources */,
+				E7A0217415A98EF400941942 /* AppDelegate.m in Sources */,
+				E7A0217715A98EF400941942 /* FormKitDemo.xcdatamodeld in Sources */,
+				E7A022AC15A98F5F00941942 /* FKFormAttributeMapping.m in Sources */,
+				E7A022AD15A98F5F00941942 /* FKFormMapper.m in Sources */,
+				E7A022AE15A98F5F00941942 /* FKFormMapping.m in Sources */,
+				E7A022AF15A98F5F00941942 /* FKFormModel.m in Sources */,
+				E7A022B015A98F5F00941942 /* FKSectionObject.m in Sources */,
+				E7A022B115A98F5F00941942 /* FKBadgeField.m in Sources */,
+				E7A022B215A98F5F00941942 /* FKBigTextField.m in Sources */,
+				E7A022B315A98F5F00941942 /* FKButtonField.m in Sources */,
+				E7A022B415A98F5F00941942 /* FKFloatField.m in Sources */,
+				E7A022B515A98F5F00941942 /* FKImageField.m in Sources */,
+				E7A022B615A98F5F00941942 /* FKIntegerField.m in Sources */,
+				E7A022B715A98F5F00941942 /* FKLabelField.m in Sources */,
+				E7A022B815A98F5F00941942 /* FKPasswordTextField.m in Sources */,
+				E7A022B915A98F5F00941942 /* FKSaveButtonField.m in Sources */,
+				E7A022BA15A98F5F00941942 /* FKSimpleField.m in Sources */,
+				E7A022BB15A98F5F00941942 /* FKSliderField.m in Sources */,
+				E7A022BC15A98F5F00941942 /* FKSwitchField.m in Sources */,
+				E7A022BD15A98F5F00941942 /* FKTextField.m in Sources */,
+				E7A022BE15A98F5F00941942 /* FKTextViewField.m in Sources */,
+				E7A022BF15A98F5F00941942 /* FKValueViewField.m in Sources */,
+				E7A022C015A98F5F00941942 /* NSObject+FKFormAttributeMapping.m in Sources */,
+				E7A022D715A994D100941942 /* AbstractActionSheetPicker.m in Sources */,
+				E7A022D815A994D100941942 /* ActionSheetCustomPicker.m in Sources */,
+				E7A022D915A994D100941942 /* ActionSheetDatePicker.m in Sources */,
+				E7A022DA15A994D100941942 /* ActionSheetDistancePicker.m in Sources */,
+				E7A022DB15A994D100941942 /* ActionSheetStringPicker.m in Sources */,
+				E7A022DC15A994D100941942 /* DistancePickerView.m in Sources */,
+				E7A022DD15A994D100941942 /* BWLongTextViewController.m in Sources */,
+				E7A022DE15A994D100941942 /* BWSelectViewController.m in Sources */,
+				E7A022E115A9970E00941942 /* UITableViewCell+FormKit.m in Sources */,
+				E7A022E415A9A22E00941942 /* UIView+FormKit.m in Sources */,
+				E7A022ED15A9A34B00941942 /* Comment.m in Sources */,
+				E7A022EE15A9A34B00941942 /* FormTableViewExampleController.m in Sources */,
+				E7A022EF15A9A34B00941942 /* Genre.m in Sources */,
+				E7A022F015A9A34B00941942 /* Movie.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7A0217815A98EF400941942 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7A022F515A9A5A600941942 /* FKFormMapperSpecs.m in Sources */,
+				E7A022F615A9A5A600941942 /* Book.m in Sources */,
+				E72F2F3715A9A92B003324C3 /* NSObject+FKFormAttributeMapping.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E7A0218415A98EF400941942 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E7A0215C15A98EF400941942 /* FormKitDemo */;
+			targetProxy = E7A0218315A98EF400941942 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E7A0216C15A98EF400941942 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7A0216D15A98EF400941942 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E7A0218815A98EF400941942 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7A0218915A98EF400941942 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E7A0218E15A98EF400941942 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E7A0218F15A98EF400941942 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E7A0219115A98EF400941942 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FormKitDemo/FormKitDemo-Prefix.pch";
+				INFOPLIST_FILE = "FormKitDemo/FormKitDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E7A0219215A98EF400941942 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FormKitDemo/FormKitDemo-Prefix.pch";
+				INFOPLIST_FILE = "FormKitDemo/FormKitDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		E7A0219415A98EF400941942 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FormKitDemo.app/FormKitDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FormKitDemo/FormKitDemo-Prefix.pch";
+				INFOPLIST_FILE = "FormKitDemoTests/FormKitDemoTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				USER_HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/Kiwi/**";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		E7A0219515A98EF400941942 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FormKitDemo.app/FormKitDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FormKitDemo/FormKitDemo-Prefix.pch";
+				INFOPLIST_FILE = "FormKitDemoTests/FormKitDemoTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				USER_HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/Kiwi/**";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E7A0215715A98EF400941942 /* Build configuration list for PBXProject "FormKitDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7A0218E15A98EF400941942 /* Debug */,
+				E7A0218F15A98EF400941942 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7A0219015A98EF400941942 /* Build configuration list for PBXNativeTarget "FormKitDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7A0219115A98EF400941942 /* Debug */,
+				E7A0219215A98EF400941942 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7A0219315A98EF400941942 /* Build configuration list for PBXNativeTarget "FormKitDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7A0219415A98EF400941942 /* Debug */,
+				E7A0219515A98EF400941942 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E7A0217515A98EF400941942 /* FormKitDemo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E7A0217615A98EF400941942 /* FormKitDemo.xcdatamodel */,
+			);
+			currentVersion = E7A0217615A98EF400941942 /* FormKitDemo.xcdatamodel */;
+			path = FormKitDemo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E7A0215415A98EF400941942 /* Project object */;
+}
