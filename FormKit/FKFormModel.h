@@ -21,9 +21,7 @@
 @class FKFormMapping;
 @class FKFormAttributeMapping;
 
-@interface FKFormModel : NSObject <UITableViewDataSource, UITableViewDelegate> {
-    BOOL _canHideKeyBoard;
-}
+@interface FKFormModel : NSObject <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) id object;

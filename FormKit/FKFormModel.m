@@ -131,7 +131,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [[self.tableView fk_findFirstResponder] resignFirstResponder];
+    [[self.tableView.superview fk_findFirstResponder] resignFirstResponder];
     
     FKFormAttributeMapping *attributeMapping = [self.formMapper attributeMappingAtIndexPath:indexPath];
     
@@ -313,17 +313,8 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (_canHideKeyBoard) {
-        [[self.tableView fk_findFirstResponder] resignFirstResponder];
-        _canHideKeyBoard = NO;
-    }
-}
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
-    _canHideKeyBoard = YES;
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [[self.tableView.superview.superview fk_findFirstResponder] resignFirstResponder];
 }
 
 
