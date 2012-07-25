@@ -27,6 +27,7 @@
 @property (nonatomic, retain) id object;
 @property (nonatomic, retain) UINavigationController *navigationController;
 @property (nonatomic, assign) Class selectControllerClass;
+@property (nonatomic, assign) Class longTextControllerClass;
 
 + (id)formTableModelForTableView:(UITableView *)tableView;
 

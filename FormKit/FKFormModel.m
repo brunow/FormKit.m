@@ -59,6 +59,7 @@
 @synthesize formMapper = _formMapper;
 @synthesize navigationController = _navigationController;
 @synthesize selectControllerClass = _selectControllerClass;
+@synthesize longTextControllerClass = _longTextControllerClass;
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -94,6 +95,7 @@
     self = [super init];
     if (self) {
         self.selectControllerClass = [BWSelectViewController class];
+        self.longTextControllerClass = [BWLongTextViewController class];
     }
     return self;
 }
@@ -314,7 +316,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    [[self.tableView.superview.superview fk_findFirstResponder] resignFirstResponder];
+    [[self.tableView.superview fk_findFirstResponder] resignFirstResponder];
 }
 
 
@@ -327,7 +329,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)showTextViewControllerWithAttributeMapping:(FKFormAttributeMapping *)attributeMapping {
     Class controllerClass = (attributeMapping.controllerClass == nil) ?
-    [BWLongTextViewController class] : attributeMapping.controllerClass;
+                            self.longTextControllerClass : attributeMapping.controllerClass;
     
     NSString *value = [self.formMapper valueForAttriteMapping:attributeMapping];
     BWLongTextViewController *vc = [[controllerClass alloc] initWithText:value];
