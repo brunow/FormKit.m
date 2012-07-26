@@ -34,3 +34,5 @@ typedef void(^FKFormMappingWillDisplayCellBlock)(UITableViewCell *cell, id objec
 typedef void(^FKFormMappingCellSelectionBlock)(UITableViewCell *cell, id object, NSIndexPath *indexPath);
 
 typedef NSString *(^FKFormMappingSliderValueBlock)(id value);
+
+typedef void(^FKFormMappingDidChangeValue)(id object, id value, NSString *keyPath);

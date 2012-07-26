@@ -60,6 +60,7 @@
 @synthesize navigationController = _navigationController;
 @synthesize selectControllerClass = _selectControllerClass;
 @synthesize longTextControllerClass = _longTextControllerClass;
+@synthesize didChangeValueBlock = _didChangeValueBlock;
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -207,6 +208,12 @@
     
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:sectionIndex]
                   withRowAnimation:UITableViewRowAnimationNone];
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)setDidChangeValueWithBlock:(FKFormMappingDidChangeValue)didChangeValueBlock {
+    _didChangeValueBlock = didChangeValueBlock;
 }
 
 

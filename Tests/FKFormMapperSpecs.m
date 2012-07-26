@@ -106,7 +106,7 @@ describe(@"", ^{
         CGFloat value = [_mapper heightForRowAtIndexPath:indexPath];
         [[theValue(value) should] equal:theValue(expected)];
     });
-    
+        
     context(@"cell relative to attribute", ^{
         
         // BKFormAttributeMappingTypeText

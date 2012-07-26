@@ -17,6 +17,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "FKBlocks.h"
+
 @class BKCellMapping;
 @class FKFormMapping;
 @class FKFormAttributeMapping;
@@ -28,6 +30,7 @@
 @property (nonatomic, retain) UINavigationController *navigationController;
 @property (nonatomic, assign) Class selectControllerClass;
 @property (nonatomic, assign) Class longTextControllerClass;
+@property (nonatomic, copy, readonly) FKFormMappingDidChangeValue didChangeValueBlock;
 
 + (id)formTableModelForTableView:(UITableView *)tableView;
 
@@ -44,6 +47,8 @@
 - (void)reloadRowWithAttributeMapping:(FKFormAttributeMapping *)attributeMapping;
 
 - (void)reloadSectionWithIdentifier:(NSString *)sectionIdentifier;
+
+- (void)setDidChangeValueWithBlock:(FKFormMappingDidChangeValue)didChangeValueBlock;
 
 /**
  Find the first UITextField or UITextView in the table view.

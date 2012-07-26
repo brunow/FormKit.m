@@ -114,6 +114,10 @@
         [self.formModel registerMapping:formMapping];
     }];
     
+    [self.formModel setDidChangeValueWithBlock:^(id object, id value, NSString *keyPath) {
+        NSLog(@"did change model value");
+    }];
+    
     [self.formModel loadFieldsWithObject:movie];
 }
 
