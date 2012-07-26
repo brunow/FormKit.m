@@ -145,7 +145,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)setValue:(id)value forAttributeMapping:(FKFormAttributeMapping *)attributeMapping {
-    if (nil != self.formModel) {
+    if (nil != self.formModel.didChangeValueBlock) {
         self.formModel.didChangeValueBlock([self.formModel object], value, attributeMapping.attribute);
     }
     
