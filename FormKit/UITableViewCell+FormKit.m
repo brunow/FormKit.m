@@ -37,13 +37,19 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-+ (id)fk_cellForTableView:(UITableView *)tableView { 
++ (id)fk_cellForTableView:(UITableView *)tableView
+            configureCell:(FKFormMappingConfigureCellBlock)configureCellBlock {
+    
     NSString *cellID = [self cellIdentifier];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     
     if (cell == nil) {
         UITableViewCellStyle cellStyle = [self cellStyle];
         cell = [[self alloc] initWithStyle:cellStyle reuseIdentifier:cellID];
+        
+        if (nil != configureCellBlock) {
+            configureCellBlock(cell);
+        }
     }
     
     return cell;

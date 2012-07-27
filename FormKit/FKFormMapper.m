@@ -48,6 +48,8 @@
 
 - (id)convertValueIfneeded:(id)value attributeMapping:(FKFormAttributeMapping *)attributeMapping;
 
+- (id)cellForClass:(Class)cellClass;
+
 @end
 
 
@@ -145,6 +147,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)setValue:(id)value forAttributeMapping:(FKFormAttributeMapping *)attributeMapping {
+    NSLog(@"setValue");
     if (nil != self.formModel.didChangeValueBlock) {
         self.formModel.didChangeValueBlock([self.formModel object], value, attributeMapping.attribute);
     }
@@ -252,52 +255,52 @@
     FKFormAttributeMappingType type = attributeMapping.type;
     
     if (type == FKFormAttributeMappingTypeText) {
-        field = [_formMapping.textFieldClass fk_cellForTableView:self.tableView];
+        field = [self cellForClass:_formMapping.textFieldClass];
         [[(FKTextField *)field textField] setDelegate:self];
         [[(FKTextField *)field textField] setFormAttributeMapping:attributeMapping];
         
     } else if (type == FKFormAttributeMappingTypeFloat) {
-        field = [_formMapping.floatFieldClass fk_cellForTableView:self.tableView];
+        field = [self cellForClass:_formMapping.floatFieldClass];
         
     } else if (type == FKFormAttributeMappingTypeInteger) {
-        field = [_formMapping.integerFieldClass fk_cellForTableView:self.tableView];
+        field = [self cellForClass:_formMapping.integerFieldClass];
         [[(FKIntegerField *)field textField] setDelegate:self];
         [[(FKIntegerField *)field textField] setFormAttributeMapping:attributeMapping];
         
     } else if (type == FKFormAttributeMappingTypeLabel) {
-        field = [_formMapping.labelFieldClass fk_cellForTableView:self.tableView];
+        field = [self cellForClass:_formMapping.labelFieldClass];
         
     } else if (type == FKFormAttributeMappingTypePassword) {
-        field = [_formMapping.passwordFieldClass fk_cellForTableView:self.tableView];
+        field = [self cellForClass:_formMapping.passwordFieldClass];
         [[(FKPasswordTextField *)field textField] setDelegate:self];
         [[(FKPasswordTextField *)field textField] setFormAttributeMapping:attributeMapping];
         
     } else if (type == FKFormAttributeMappingTypeBoolean) {
-        field = [_formMapping.switchFieldClass fk_cellForTableView:self.tableView];
+        field = [self cellForClass:_formMapping.switchFieldClass];
         
     } else if (type == FKFormAttributeMappingTypeSaveButton) {
-        field = [_formMapping.saveButtonFieldClass fk_cellForTableView:self.tableView];
+        field = [self cellForClass:_formMapping.saveButtonFieldClass];
         
     } else if (type == FKFormAttributeMappingTypeButton) {
-        field = [_formMapping.buttonFieldClass fk_cellForTableView:self.tableView];
+        field = [self cellForClass:_formMapping.buttonFieldClass];
         
     } else if (type == FKFormAttributeMappingTypeSelect ||
                type == FKFormAttributeMappingTypeTime ||
                type == FKFormAttributeMappingTypeDate ||
                type == FKFormAttributeMappingTypeDateTime) {
-        field = [_formMapping.labelFieldClass fk_cellForTableView:self.tableView];
+        field = [self cellForClass:_formMapping.labelFieldClass];
         
     } else if (type == FKFormAttributeMappingTypeBigText) {
-        field = [_formMapping.bigTextFieldClass fk_cellForTableView:self.tableView];
+        field = [self cellForClass:_formMapping.bigTextFieldClass];
         
     } else if (type == FKFormAttributeMappingTypeCustomCell) {
-        field = [attributeMapping.customCell fk_cellForTableView:self.tableView];
+        field = [self cellForClass:attributeMapping.customCell];
         
     } else if (type == FKFormAttributeMappingTypeSlider) {
-        field = [_formMapping.sliderFieldClass fk_cellForTableView:self.tableView];
+        field = [self cellForClass:_formMapping.sliderFieldClass];
         
     } else {
-        field = [_formMapping.labelFieldClass fk_cellForTableView:self.tableView];
+        field = [self cellForClass:_formMapping.labelFieldClass];
     }
     
     return field;
@@ -455,6 +458,19 @@
 - (void)textViewDidEndEditing:(UITextView *)textView {
     [self setValue:textView.text forAttributeMapping:textView.formAttributeMapping];
     [self.formModel reloadRowWithAttributeMapping:textView.formAttributeMapping];
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark Private
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (id)cellForClass:(Class)cellClass {
+    return [cellClass fk_cellForTableView:self.tableView
+                            configureCell:self.formModel.configureCellsBlock];
 }
 
 

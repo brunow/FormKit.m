@@ -30,7 +30,8 @@
 @property (nonatomic, retain) UINavigationController *navigationController;
 @property (nonatomic, assign) Class selectControllerClass;
 @property (nonatomic, assign) Class longTextControllerClass;
-@property (nonatomic, copy, readonly) FKFormMappingDidChangeValue didChangeValueBlock;
+@property (nonatomic, copy, readonly) FKFormMappingDidChangeValueBlock didChangeValueBlock;
+@property (nonatomic, copy, readonly) FKFormMappingConfigureCellBlock configureCellsBlock;
 
 + (id)formTableModelForTableView:(UITableView *)tableView;
 
@@ -50,7 +51,9 @@
 
 - (void)reloadSectionWithIdentifier:(NSString *)sectionIdentifier;
 
-- (void)setDidChangeValueWithBlock:(FKFormMappingDidChangeValue)didChangeValueBlock;
+- (void)setDidChangeValueWithBlock:(FKFormMappingDidChangeValueBlock)didChangeValueBlock;
+
+- (void)configureCells:(FKFormMappingConfigureCellBlock)configureCellsBlock;
 
 /**
  Find the first UITextField or UITextView in the table view.

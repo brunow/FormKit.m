@@ -61,6 +61,7 @@
 @synthesize selectControllerClass = _selectControllerClass;
 @synthesize longTextControllerClass = _longTextControllerClass;
 @synthesize didChangeValueBlock = _didChangeValueBlock;
+@synthesize configureCellsBlock = _configureCellsBlock;
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -232,8 +233,14 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)setDidChangeValueWithBlock:(FKFormMappingDidChangeValue)didChangeValueBlock {
+- (void)setDidChangeValueWithBlock:(FKFormMappingDidChangeValueBlock)didChangeValueBlock {
     _didChangeValueBlock = didChangeValueBlock;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)configureCells:(FKFormMappingConfigureCellBlock)configureCellsBlock {
+    _configureCellsBlock = configureCellsBlock;
 }
 
 
