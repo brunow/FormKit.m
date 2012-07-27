@@ -195,6 +195,22 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)reloadRowWithIdentifier:(NSString *)identifier {
+    __block BOOL hasReloadedRow = NO;
+    
+    [self.formMapping.attributeMappings enumerateKeysAndObjectsUsingBlock:^(id key, FKFormAttributeMapping *attributeMapping, BOOL *stop) {
+        if ([attributeMapping.attribute isEqualToString:identifier]) {
+            [self reloadRowWithAttributeMapping:attributeMapping];
+            *stop = YES;
+            hasReloadedRow = YES;
+        }
+    }];
+    
+    NSAssert(YES == hasReloadedRow, @"Identifier doesn't exist, so cannot reload row");
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)reloadRowWithAttributeMapping:(FKFormAttributeMapping *)attributeMapping {
     NSIndexPath *indexPath = [self.formMapper indexPathOfAttributeMapping:attributeMapping];;
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]

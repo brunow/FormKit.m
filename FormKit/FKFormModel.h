@@ -44,6 +44,8 @@
 
 - (void)loadFieldsWithObject:(id)object;
 
+- (void)reloadRowWithIdentifier:(NSString *)identifier;
+
 - (void)reloadRowWithAttributeMapping:(FKFormAttributeMapping *)attributeMapping;
 
 - (void)reloadSectionWithIdentifier:(NSString *)sectionIdentifier;
