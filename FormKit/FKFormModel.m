@@ -167,7 +167,7 @@
     } else if (FKFormAttributeMappingTypeCustomCell == attributeMapping.type) {
         if (nil != attributeMapping.cellSelectionBlock) {
             UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
-            attributeMapping.cellSelectionBlock(cell, indexPath, self.object);
+            attributeMapping.cellSelectionBlock(cell, self.object, indexPath);
         }
         
     }
