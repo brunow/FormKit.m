@@ -206,8 +206,12 @@
 - (void)reloadSectionWithIdentifier:(NSString *)sectionIdentifier {
     NSUInteger sectionIndex = [self.formMapper.titles indexOfObject:sectionIdentifier];
     
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:sectionIndex]
-                  withRowAnimation:UITableViewRowAnimationNone];
+    NSAssert(sectionIndex != NSNotFound, @"Section doesn't exist");
+    
+    if (NSNotFound != sectionIndex) {
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                      withRowAnimation:UITableViewRowAnimationNone];
+    }
 }
 
 
