@@ -38,7 +38,7 @@
 @property (nonatomic, assign) Class passwordFieldClass;
 @property (nonatomic, assign) Class switchFieldClass;
 @property (nonatomic, assign) Class saveButtonFieldClass;
-@property (nonatomic, assign) Class bigTextFieldClass;
+@property (nonatomic, assign) Class disclosureIndicatorAccessoryField;
 @property (nonatomic, assign) Class sliderFieldClass;
 @property (nonatomic, assign) Class buttonFieldClass;
 

@@ -30,4 +30,4 @@
 #import "FKIntegerField.h"
 #import "FKFloatField.h"
 #import "FKSaveButtonField.h"
-#import "FKBigTextField.h"
+#import "FKDisclosureIndicatorAccessoryField.h"

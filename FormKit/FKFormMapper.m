@@ -284,14 +284,17 @@
     } else if (type == FKFormAttributeMappingTypeButton) {
         field = [self cellForClass:_formMapping.buttonFieldClass];
         
-    } else if (type == FKFormAttributeMappingTypeSelect ||
+    } else if ((type == FKFormAttributeMappingTypeSelect && attributeMapping.showInPicker) ||
                type == FKFormAttributeMappingTypeTime ||
                type == FKFormAttributeMappingTypeDate ||
                type == FKFormAttributeMappingTypeDateTime) {
         field = [self cellForClass:_formMapping.labelFieldClass];
         
+    } else if (type == FKFormAttributeMappingTypeSelect && !attributeMapping.showInPicker) {
+        field = [self cellForClass:_formMapping.disclosureIndicatorAccessoryField];
+        
     } else if (type == FKFormAttributeMappingTypeBigText) {
-        field = [self cellForClass:_formMapping.bigTextFieldClass];
+        field = [self cellForClass:_formMapping.disclosureIndicatorAccessoryField];
         
     } else if (type == FKFormAttributeMappingTypeCustomCell) {
         field = [self cellForClass:attributeMapping.customCell];

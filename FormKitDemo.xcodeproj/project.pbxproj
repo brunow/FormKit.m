@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E721801215AB637F00C61C03 /* libKiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E721801115AB637F00C61C03 /* libKiwi.a */; };
 		E72F2F3715A9A92B003324C3 /* NSObject+FKFormAttributeMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022AB15A98F5F00941942 /* NSObject+FKFormAttributeMapping.m */; };
+		E7504DC315C7C95A00286ACA /* FKDisclosureIndicatorAccessoryField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7504DC215C7C95A00286ACA /* FKDisclosureIndicatorAccessoryField.m */; };
 		E7A0216215A98EF400941942 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A0216115A98EF400941942 /* UIKit.framework */; };
 		E7A0216415A98EF400941942 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A0216315A98EF400941942 /* Foundation.framework */; };
 		E7A0216615A98EF400941942 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A0216515A98EF400941942 /* CoreGraphics.framework */; };
@@ -28,7 +29,6 @@
 		E7A022AF15A98F5F00941942 /* FKFormModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0228615A98F5F00941942 /* FKFormModel.m */; };
 		E7A022B015A98F5F00941942 /* FKSectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0228815A98F5F00941942 /* FKSectionObject.m */; };
 		E7A022B115A98F5F00941942 /* FKBadgeField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0228C15A98F5F00941942 /* FKBadgeField.m */; };
-		E7A022B215A98F5F00941942 /* FKBigTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0228E15A98F5F00941942 /* FKBigTextField.m */; };
 		E7A022B315A98F5F00941942 /* FKButtonField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0229015A98F5F00941942 /* FKButtonField.m */; };
 		E7A022B415A98F5F00941942 /* FKFloatField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0229215A98F5F00941942 /* FKFloatField.m */; };
 		E7A022B515A98F5F00941942 /* FKImageField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A0229515A98F5F00941942 /* FKImageField.m */; };
@@ -73,6 +73,8 @@
 
 /* Begin PBXFileReference section */
 		E721801115AB637F00C61C03 /* libKiwi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKiwi.a; path = "../dev/xcodeBuilds/Release-iphoneos/libKiwi.a"; sourceTree = "<group>"; };
+		E7504DC115C7C95A00286ACA /* FKDisclosureIndicatorAccessoryField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKDisclosureIndicatorAccessoryField.h; sourceTree = "<group>"; };
+		E7504DC215C7C95A00286ACA /* FKDisclosureIndicatorAccessoryField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKDisclosureIndicatorAccessoryField.m; sourceTree = "<group>"; };
 		E7A0215D15A98EF400941942 /* FormKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7A0216115A98EF400941942 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E7A0216315A98EF400941942 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -104,8 +106,6 @@
 		E7A0228A15A98F5F00941942 /* FKFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKFields.h; sourceTree = "<group>"; };
 		E7A0228B15A98F5F00941942 /* FKBadgeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKBadgeField.h; sourceTree = "<group>"; };
 		E7A0228C15A98F5F00941942 /* FKBadgeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKBadgeField.m; sourceTree = "<group>"; };
-		E7A0228D15A98F5F00941942 /* FKBigTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKBigTextField.h; sourceTree = "<group>"; };
-		E7A0228E15A98F5F00941942 /* FKBigTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKBigTextField.m; sourceTree = "<group>"; };
 		E7A0228F15A98F5F00941942 /* FKButtonField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKButtonField.h; sourceTree = "<group>"; };
 		E7A0229015A98F5F00941942 /* FKButtonField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKButtonField.m; sourceTree = "<group>"; };
 		E7A0229115A98F5F00941942 /* FKFloatField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKFloatField.h; sourceTree = "<group>"; };
@@ -312,8 +312,6 @@
 				E7A0228A15A98F5F00941942 /* FKFields.h */,
 				E7A0228B15A98F5F00941942 /* FKBadgeField.h */,
 				E7A0228C15A98F5F00941942 /* FKBadgeField.m */,
-				E7A0228D15A98F5F00941942 /* FKBigTextField.h */,
-				E7A0228E15A98F5F00941942 /* FKBigTextField.m */,
 				E7A0228F15A98F5F00941942 /* FKButtonField.h */,
 				E7A0229015A98F5F00941942 /* FKButtonField.m */,
 				E7A0229115A98F5F00941942 /* FKFloatField.h */,
@@ -341,6 +339,8 @@
 				E7A022A715A98F5F00941942 /* FKTextViewField.m */,
 				E7A022A815A98F5F00941942 /* FKValueViewField.h */,
 				E7A022A915A98F5F00941942 /* FKValueViewField.m */,
+				E7504DC115C7C95A00286ACA /* FKDisclosureIndicatorAccessoryField.h */,
+				E7504DC215C7C95A00286ACA /* FKDisclosureIndicatorAccessoryField.m */,
 			);
 			path = Fields;
 			sourceTree = "<group>";
@@ -517,7 +517,6 @@
 				E7A022AF15A98F5F00941942 /* FKFormModel.m in Sources */,
 				E7A022B015A98F5F00941942 /* FKSectionObject.m in Sources */,
 				E7A022B115A98F5F00941942 /* FKBadgeField.m in Sources */,
-				E7A022B215A98F5F00941942 /* FKBigTextField.m in Sources */,
 				E7A022B315A98F5F00941942 /* FKButtonField.m in Sources */,
 				E7A022B415A98F5F00941942 /* FKFloatField.m in Sources */,
 				E7A022B515A98F5F00941942 /* FKImageField.m in Sources */,
@@ -546,6 +545,7 @@
 				E7A022EE15A9A34B00941942 /* FormTableViewExampleController.m in Sources */,
 				E7A022EF15A9A34B00941942 /* Genre.m in Sources */,
 				E7A022F015A9A34B00941942 /* Movie.m in Sources */,
+				E7504DC315C7C95A00286ACA /* FKDisclosureIndicatorAccessoryField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

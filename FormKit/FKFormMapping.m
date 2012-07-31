@@ -54,7 +54,7 @@
 @synthesize passwordFieldClass = _passwordFieldClass;
 @synthesize switchFieldClass = _switchFieldClass;
 @synthesize saveButtonFieldClass = _saveButtonFieldClass;
-@synthesize bigTextFieldClass = _bigTextFieldClass;
+@synthesize disclosureIndicatorAccessoryField = _disclosureIndicatorAccessoryField;
 @synthesize sliderFieldClass = _sliderFieldClass;
 @synthesize buttonFieldClass = _buttonFieldClass;
 
@@ -73,7 +73,7 @@
         _passwordFieldClass = [FKPasswordTextField class];
         _switchFieldClass = [FKSwitchField class];
         _saveButtonFieldClass = [FKSaveButtonField class];
-        _bigTextFieldClass = [FKBigTextField class];
+        _disclosureIndicatorAccessoryField = [FKDisclosureIndicatorAccessoryField class];
         _sliderFieldClass = [FKSliderField class];
         _buttonFieldClass = [FKButtonField class];
     }
