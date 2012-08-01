@@ -261,6 +261,8 @@
         
     } else if (type == FKFormAttributeMappingTypeFloat) {
         field = [self cellForClass:_formMapping.floatFieldClass];
+        [[(FKFloatField *)field textField] setDelegate:self];
+        [[(FKFloatField *)field textField] setFormAttributeMapping:attributeMapping];
         
     } else if (type == FKFormAttributeMappingTypeInteger) {
         field = [self cellForClass:_formMapping.integerFieldClass];
