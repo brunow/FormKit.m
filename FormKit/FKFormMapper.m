@@ -147,12 +147,11 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)setValue:(id)value forAttributeMapping:(FKFormAttributeMapping *)attributeMapping {
-    NSLog(@"setValue");
+    [self.object setValue:value forKeyPath:attributeMapping.attribute];
+    
     if (nil != self.formModel.didChangeValueBlock) {
         self.formModel.didChangeValueBlock([self.formModel object], value, attributeMapping.attribute);
     }
-    
-    [self.object setValue:value forKeyPath:attributeMapping.attribute];
 }
 
 
