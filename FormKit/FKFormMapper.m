@@ -252,21 +252,24 @@
     
     FKSimpleField *field = nil;
     FKFormAttributeMappingType type = attributeMapping.type;
-    
+
     if (type == FKFormAttributeMappingTypeText) {
         field = [self cellForClass:_formMapping.textFieldClass];
         [[(FKTextField *)field textField] setDelegate:self];
         [[(FKTextField *)field textField] setFormAttributeMapping:attributeMapping];
+        [[(FKTextField *)field textField] setKeyboardType:attributeMapping.keyboardType];
         
     } else if (type == FKFormAttributeMappingTypeFloat) {
         field = [self cellForClass:_formMapping.floatFieldClass];
         [[(FKFloatField *)field textField] setDelegate:self];
         [[(FKFloatField *)field textField] setFormAttributeMapping:attributeMapping];
+        [[(FKFloatField *)field textField] setKeyboardType:attributeMapping.keyboardType];
         
     } else if (type == FKFormAttributeMappingTypeInteger) {
         field = [self cellForClass:_formMapping.integerFieldClass];
         [[(FKIntegerField *)field textField] setDelegate:self];
         [[(FKIntegerField *)field textField] setFormAttributeMapping:attributeMapping];
+        [[(FKIntegerField *)field textField] setKeyboardType:attributeMapping.keyboardType];
         
     } else if (type == FKFormAttributeMappingTypeLabel) {
         field = [self cellForClass:_formMapping.labelFieldClass];
@@ -275,6 +278,7 @@
         field = [self cellForClass:_formMapping.passwordFieldClass];
         [[(FKPasswordTextField *)field textField] setDelegate:self];
         [[(FKPasswordTextField *)field textField] setFormAttributeMapping:attributeMapping];
+        [[(FKPasswordTextField *)field textField] setKeyboardType:attributeMapping.keyboardType];
         
     } else if (type == FKFormAttributeMappingTypeBoolean) {
         field = [self cellForClass:_formMapping.switchFieldClass];

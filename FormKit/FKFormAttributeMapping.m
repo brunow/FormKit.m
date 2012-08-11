@@ -45,11 +45,36 @@
 @synthesize maxValue = _maxValue;
 @synthesize showInPicker = _showInPicker;
 @synthesize sliderValueBlock = _sliderValueBlock;
+@synthesize keyboardType = _keyboardType;
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (id)init {
+    self = [super init];
+    if (self) {
+        self.keyboardType = UIKeyboardTypeNumberPad;
+    }
+    return self;
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 + (id)attributeMapping {
     return [[self alloc] init];
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)setType:(FKFormAttributeMappingType)type {
+    _type = type;
+    
+    if (FKFormAttributeMappingTypeFloat == type) {
+        self.keyboardType = UIKeyboardTypeDecimalPad;
+        
+    } else if (FKFormAttributeMappingTypeInteger == type) {
+        self.keyboardType = UIKeyboardTypeNumberPad;
+        
+    }
 }
 
 

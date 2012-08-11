@@ -60,6 +60,11 @@
 - (FKFormAttributeMapping *)mapAttribute:(NSString *)attribute
                                    title:(NSString *)title
                                     type:(FKFormAttributeMappingType)type
+                            keyboardType:(UIKeyboardType)keyboardType;
+
+- (FKFormAttributeMapping *)mapAttribute:(NSString *)attribute
+                                   title:(NSString *)title
+                                    type:(FKFormAttributeMappingType)type
                          controllerClass:(Class)controllerClass;
 
 - (FKFormAttributeMapping *)mapSliderAttribute:(NSString *)attribute

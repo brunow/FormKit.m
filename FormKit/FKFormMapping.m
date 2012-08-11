@@ -117,6 +117,22 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (FKFormAttributeMapping *)mapAttribute:(NSString *)attribute
                                    title:(NSString *)title
+                                    type:(FKFormAttributeMappingType)type
+                            keyboardType:(UIKeyboardType)keyboardType {
+    
+    FKFormAttributeMapping *attributeMapping = [self attributeMappingWithTitle:title
+                                                                     attribute:attribute
+                                                                          type:type];
+    
+    attributeMapping.keyboardType = keyboardType;
+    
+    return attributeMapping;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (FKFormAttributeMapping *)mapAttribute:(NSString *)attribute
+                                   title:(NSString *)title
                          placeholderText:(NSString *)placeholderText
                                     type:(FKFormAttributeMappingType)type {
     

@@ -63,6 +63,7 @@ typedef enum {
 @property (nonatomic, assign) float maxValue;
 @property (nonatomic, assign) BOOL showInPicker;
 @property (nonatomic, copy) FKFormMappingSliderValueBlock sliderValueBlock;
+@property (nonatomic, assign) UIKeyboardType keyboardType;
 
 /*
  * Convenient method to get an attributeMapping
