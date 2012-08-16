@@ -48,7 +48,6 @@ This library is extracted from [BaseKit](https://github.com/brunow/BaseKit).
     [self.formModel loadFieldsWithObject:movie];
 
 ![Form Mapping](https://github.com/brunow/FormKit.m/raw/master/form-mapping.png)
-![Form Select Field](https://github.com/rpitting/FormKit.m/raw/master/form-select.png)
 
 ## Migrating form BaseKit FormMapping
 
