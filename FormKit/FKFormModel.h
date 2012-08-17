@@ -34,6 +34,29 @@
 @property (nonatomic, copy, readonly) FKFormMappingConfigureCellBlock configureCellsBlock;
 @property (nonatomic, retain) UIView *viewOrigin;
 
+/**
+ A set of attribute names with invalid values.
+ 
+ Make sure you use the same strings that you used when mapping  attributes.
+ 
+ You should call reloadData on your table view after setting this value.
+ */
+@property (nonatomic,strong) NSSet* invalidAttributes;
+
+/**
+ Default text color used for the title label in table cells for attribues with valid values.
+ 
+ The default is black.
+ */
+@property (nonatomic,strong) UIColor* validationNormalColor;
+
+/**
+ Color used for the title label in table cells for attribues with invalid values.
+ 
+ The default is red.
+ */
+@property (nonatomic,strong) UIColor* validationErrorColor;
+
 + (id)formTableModelForTableView:(UITableView *)tableView;
 
 + (id)formTableModelForTableView:(UITableView *)tableView

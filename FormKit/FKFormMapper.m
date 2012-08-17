@@ -126,7 +126,11 @@
         id value = [self valueForAttriteMapping:attributeMapping];
         [self mapAttributeMapping:attributeMapping value:value withField:field];
         field.textLabel.text = attributeMapping.title;
-        
+        if ([self.formModel.invalidAttributes containsObject:attributeMapping.attribute]) {
+            field.textLabel.textColor = self.formModel.validationErrorColor;
+        } else {
+            field.textLabel.textColor = self.formModel.validationNormalColor;
+        }
     }
     
     return field;
