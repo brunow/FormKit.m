@@ -98,6 +98,8 @@
     if (self) {
         self.selectControllerClass = [BWSelectViewController class];
         self.longTextControllerClass = [BWLongTextViewController class];
+        self.validationNormalColor = [UIColor blackColor];
+        self.validationErrorColor = [UIColor redColor];
     }
     return self;
 }
