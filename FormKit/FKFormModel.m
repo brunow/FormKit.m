@@ -392,7 +392,7 @@
                                          initialSelection:selectedIndex
                                                 doneBlock:done
                                               cancelBlock:nil
-                                                   origin:self.tableView];
+                                                   origin:(nil == self.viewOrigin) ? self.tableView : self.viewOrigin];
     
     picker.formAttributeMapping = attributeMapping;
 }

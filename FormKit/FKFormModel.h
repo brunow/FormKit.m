@@ -32,6 +32,7 @@
 @property (nonatomic, assign) Class longTextControllerClass;
 @property (nonatomic, copy, readonly) FKFormMappingDidChangeValueBlock didChangeValueBlock;
 @property (nonatomic, copy, readonly) FKFormMappingConfigureCellBlock configureCellsBlock;
+@property (nonatomic, retain) UIView *viewOrigin;
 
 + (id)formTableModelForTableView:(UITableView *)tableView;
 
