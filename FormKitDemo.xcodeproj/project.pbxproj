@@ -10,6 +10,7 @@
 		E721801215AB637F00C61C03 /* libKiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E721801115AB637F00C61C03 /* libKiwi.a */; };
 		E72F2F3715A9A92B003324C3 /* NSObject+FKFormAttributeMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022AB15A98F5F00941942 /* NSObject+FKFormAttributeMapping.m */; };
 		E7504DC315C7C95A00286ACA /* FKDisclosureIndicatorAccessoryField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7504DC215C7C95A00286ACA /* FKDisclosureIndicatorAccessoryField.m */; };
+		E79DAEC015E28EDD00F35937 /* FKFormAttributeValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = E79DAEBF15E28EDD00F35937 /* FKFormAttributeValidation.m */; };
 		E7A0216215A98EF400941942 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A0216115A98EF400941942 /* UIKit.framework */; };
 		E7A0216415A98EF400941942 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A0216315A98EF400941942 /* Foundation.framework */; };
 		E7A0216615A98EF400941942 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A0216515A98EF400941942 /* CoreGraphics.framework */; };
@@ -75,6 +76,8 @@
 		E721801115AB637F00C61C03 /* libKiwi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKiwi.a; path = "../dev/xcodeBuilds/Release-iphoneos/libKiwi.a"; sourceTree = "<group>"; };
 		E7504DC115C7C95A00286ACA /* FKDisclosureIndicatorAccessoryField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKDisclosureIndicatorAccessoryField.h; sourceTree = "<group>"; };
 		E7504DC215C7C95A00286ACA /* FKDisclosureIndicatorAccessoryField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKDisclosureIndicatorAccessoryField.m; sourceTree = "<group>"; };
+		E79DAEBE15E28EDD00F35937 /* FKFormAttributeValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKFormAttributeValidation.h; sourceTree = "<group>"; };
+		E79DAEBF15E28EDD00F35937 /* FKFormAttributeValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKFormAttributeValidation.m; sourceTree = "<group>"; };
 		E7A0215D15A98EF400941942 /* FormKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7A0216115A98EF400941942 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E7A0216315A98EF400941942 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -302,6 +305,8 @@
 				E7A0228915A98F5F00941942 /* Fields */,
 				E7A022AA15A98F5F00941942 /* NSObject+FKFormAttributeMapping.h */,
 				E7A022AB15A98F5F00941942 /* NSObject+FKFormAttributeMapping.m */,
+				E79DAEBE15E28EDD00F35937 /* FKFormAttributeValidation.h */,
+				E79DAEBF15E28EDD00F35937 /* FKFormAttributeValidation.m */,
 			);
 			path = FormKit;
 			sourceTree = "<group>";
@@ -546,6 +551,7 @@
 				E7A022EF15A9A34B00941942 /* Genre.m in Sources */,
 				E7A022F015A9A34B00941942 /* Movie.m in Sources */,
 				E7504DC315C7C95A00286ACA /* FKDisclosureIndicatorAccessoryField.m in Sources */,
+				E79DAEC015E28EDD00F35937 /* FKFormAttributeValidation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

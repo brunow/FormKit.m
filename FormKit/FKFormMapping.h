@@ -23,12 +23,14 @@
 @interface FKFormMapping : NSObject {
     NSMutableDictionary *_attributeMappings;
     NSMutableDictionary *_sectionTitles;
+    NSMutableDictionary *_attributeValidations;
     FKFormAttributeMapping *_saveAttribute;
 }
 
 @property (nonatomic, assign) Class objectClass;
 @property (nonatomic, readonly) NSDictionary *attributeMappings;
 @property (nonatomic, readonly) NSDictionary *sectionTitles;
+@property (nonatomic, readonly) NSDictionary *attributeValidations;
 @property (nonatomic, retain) NSArray *fieldsOrder;
 @property (nonatomic, retain) FKFormAttributeMapping *saveAttribute;
 @property (nonatomic, assign) Class textFieldClass;
@@ -116,5 +118,7 @@
                       title:(NSString *)title
                        type:(FKFormAttributeMappingType)type
            attributeMapping:(FKFormMappingAttributeMappingBlock)attributeMappingBlock;
+
+- (void)validationForAttribute:(NSString *)attribute validBlock:(FKFormMappingIsValueValidBlock)validBlock;
 
 @end

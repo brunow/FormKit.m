@@ -20,7 +20,7 @@
 #import "FKFormAttributeMapping.h"
 #import "FKFields.h"
 #import "FKSectionObject.h"
-
+#import "FKFormAttributeValidation.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -57,6 +57,7 @@
 @synthesize disclosureIndicatorAccessoryField = _disclosureIndicatorAccessoryField;
 @synthesize sliderFieldClass = _sliderFieldClass;
 @synthesize buttonFieldClass = _buttonFieldClass;
+@synthesize attributeMappings = _attributeMappings;
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -66,6 +67,7 @@
         _attributeMappings = [[NSMutableDictionary alloc] init];
         _sectionTitles = [[NSMutableDictionary alloc] init];
         _fieldsOrder = [[NSMutableArray alloc] init];
+        _attributeValidations = [[NSMutableDictionary alloc] init];
         _textFieldClass = [FKTextField class];
         _floatFieldClass = [FKFloatField class];
         _integerFieldClass = [FKIntegerField class];
@@ -329,6 +331,14 @@
     attributeMappingBlock(attributeMapping);
 }
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)validationForAttribute:(NSString *)attribute validBlock:(FKFormMappingIsValueValidBlock)validBlock {
+    FKFormAttributeValidation *attributeValidation = [FKFormAttributeValidation attributeValidation];
+    attributeValidation.attribute = attribute;
+    attributeValidation.valueValidBlock = validBlock;
+    [_attributeValidations setObject:attributeValidation forKey:attribute];
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

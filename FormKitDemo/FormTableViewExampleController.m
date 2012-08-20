@@ -121,6 +121,10 @@
             [self.formModel save];
         }];
         
+        [formMapping validationForAttribute:@"title" validBlock:^BOOL(NSString *value, id object) {
+            return value.length < 10;
+        }];
+        
         [self.formModel registerMapping:formMapping];
     }];
     

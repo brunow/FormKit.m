@@ -24,6 +24,7 @@
 #import "FKFormModel.h"
 #import "FKSectionObject.h"
 #import "UITableViewCell+FormKit.h"
+#import "FKFormAttributeValidation.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -164,6 +165,26 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)setValue:(id)value forAttributeMapping:(FKFormAttributeMapping *)attributeMapping {
     [self.object setValue:value forKeyPath:attributeMapping.attribute];
+    
+    FKFormAttributeValidation *attributeValidation = [self.formMapping.attributeValidations objectForKey:attributeMapping.attribute];
+    
+    if (nil != attributeValidation) {
+        BOOL isValueValid = attributeValidation.valueValidBlock(value, self.object);
+        
+        NSMutableSet *invalidAttributes = [NSMutableSet setWithSet:self.formModel.invalidAttributes];
+        
+        if ([invalidAttributes containsObject:attributeMapping.attribute]) {
+            [invalidAttributes removeObject:attributeMapping.attribute];
+        }
+        
+        if (NO == isValueValid) {
+            [invalidAttributes addObject:attributeMapping.attribute];
+        }
+        
+        self.formModel.invalidAttributes = invalidAttributes;
+        
+        [self.formModel reloadRowWithIdentifier:attributeMapping.attribute];
+    }
     
     if (nil != self.formModel.didChangeValueBlock) {
         self.formModel.didChangeValueBlock([self.formModel object], value, attributeMapping.attribute);
@@ -364,6 +385,8 @@
     return convertedValue;
 }
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)convertValueToObjectPropertyTypeIfNeeded:(NSString*)value attributeMapping:(FKFormAttributeMapping *)attributeMapping {
     id convertedValue = value;
     
@@ -397,6 +420,7 @@
     
     return convertedValue;
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (Class)classFromSourcePropertyAtIndexPath:(NSIndexPath *)indexPath keyPath:(NSString *)keyPath {

@@ -42,3 +42,5 @@ typedef void(^FKFormMappingDidChangeValueBlock)(id object, id value, NSString *k
 typedef void (^FKFormMappingConfigureCellBlock)(UITableViewCell *cell);
 
 typedef void (^FKFormMappingAttributeMappingBlock)(FKFormAttributeMapping *mapping);
+
+typedef BOOL (^FKFormMappingIsValueValidBlock)(id value, id object);
