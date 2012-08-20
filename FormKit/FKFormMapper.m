@@ -46,7 +46,19 @@
 
 - (NSString *)formattedStringDate:(NSDate *)date usingFormat:(NSString *)dateFormat;
 
-- (id)convertValueIfneeded:(id)value attributeMapping:(FKFormAttributeMapping *)attributeMapping;
+/**
+ Converts an object property to a string that can be displayed in a label.
+ */
+- (id)convertValueToStringIfNeeded:(id)value attributeMapping:(FKFormAttributeMapping *)attributeMapping;
+
+/**
+ Converts a string value from a text field to the correspondig object value type.
+ 
+ This method is called before setting a value in the model.
+ 
+ @see convertValueToStringIfNeeded:attributeMapping:
+ */
+- (id)convertValueToObjectPropertyTypeIfNeeded:(NSString*)value attributeMapping:(FKFormAttributeMapping *)attributeMapping;
 
 - (id)cellForClass:(Class)cellClass;
 
@@ -206,7 +218,7 @@
                       value:(id)value
                   withField:(UITableViewCell *)field {
     
-    id convertedValue = [self convertValueIfneeded:value attributeMapping:attributeMapping];
+    id convertedValue = [self convertValueToStringIfNeeded:value attributeMapping:attributeMapping];
     
     // Value attribution
     if ([field isKindOfClass:[FKTextField class]]) {
@@ -320,7 +332,7 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-- (id)convertValueIfneeded:(id)value attributeMapping:(FKFormAttributeMapping *)attributeMapping {
+- (id)convertValueToStringIfNeeded:(id)value attributeMapping:(FKFormAttributeMapping *)attributeMapping {
     id convertedValue = value;
     
     if (attributeMapping.type == FKFormAttributeMappingTypeInteger) {
@@ -352,6 +364,39 @@
     return convertedValue;
 }
 
+- (id)convertValueToObjectPropertyTypeIfNeeded:(NSString*)value attributeMapping:(FKFormAttributeMapping *)attributeMapping {
+    id convertedValue = value;
+    
+    if (attributeMapping.type == FKFormAttributeMappingTypeInteger) {
+        NSInteger integerValue = [value integerValue];
+        convertedValue = [NSNumber numberWithInteger:integerValue];
+    } else if (attributeMapping.type == FKFormAttributeMappingTypeFloat) {
+        float floatValue = [value floatValue];
+        convertedValue = [NSNumber numberWithFloat:floatValue];
+    } else if (attributeMapping.type == FKFormAttributeMappingTypeDateTime ||
+               attributeMapping.type == FKFormAttributeMappingTypeDate ||
+               attributeMapping.type == FKFormAttributeMappingTypeTime) {
+        NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+
+        if (nil != attributeMapping.dateFormat) {
+            [formatter setDateFormat:attributeMapping.dateFormat];
+            convertedValue = [formatter dateFromString:value];
+        } else if (nil != attributeMapping.dateFormatBlock) {
+            NSString *dateFormat = attributeMapping.dateFormatBlock();
+            [formatter setDateFormat:dateFormat];
+            convertedValue = [formatter dateFromString:value];
+        } else {
+            convertedValue = [formatter dateFromString:value];
+        }
+        
+        
+    } else if (attributeMapping.type == FKFormAttributeMappingTypeSelect) {
+        convertedValue = attributeMapping.labelValueBlock(value, self.object);
+        
+    }
+    
+    return convertedValue;
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (Class)classFromSourcePropertyAtIndexPath:(NSIndexPath *)indexPath keyPath:(NSString *)keyPath {
@@ -455,7 +500,8 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    [self setValue:textField.text forAttributeMapping:textField.formAttributeMapping];
+    id value = [self convertValueToObjectPropertyTypeIfNeeded:textField.text attributeMapping:textField.formAttributeMapping];
+    [self setValue:value forAttributeMapping:textField.formAttributeMapping];
     [self.formModel reloadRowWithAttributeMapping:textField.formAttributeMapping];
 }
 
