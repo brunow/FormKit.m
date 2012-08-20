@@ -17,6 +17,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class FKFormAttributeMapping;
+
 typedef void(^FKBasicBlock)();
 
 typedef NSArray *(^FKFormMappingSelectValueBlock)(id value, id object, NSInteger *selectedValueIndex);
@@ -38,3 +40,5 @@ typedef NSString *(^FKFormMappingSliderValueBlock)(id value);
 typedef void(^FKFormMappingDidChangeValueBlock)(id object, id value, NSString *keyPath);
 
 typedef void (^FKFormMappingConfigureCellBlock)(UITableViewCell *cell);
+
+typedef void (^FKFormMappingAttributeMappingBlock)(FKFormAttributeMapping *mapping);

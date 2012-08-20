@@ -320,6 +320,18 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)mappingForAttribute:(NSString *)attribute
+                      title:(NSString *)title
+                       type:(FKFormAttributeMappingType)type
+           attributeMapping:(FKFormMappingAttributeMappingBlock)attributeMappingBlock {
+    
+    FKFormAttributeMapping *attributeMapping = [self attributeMappingWithTitle:title attribute:attribute type:type];
+    attributeMappingBlock(attributeMapping);
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark Getters and setters

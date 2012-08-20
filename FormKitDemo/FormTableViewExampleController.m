@@ -54,7 +54,17 @@
     [FKFormMapping mappingForClass:[Movie class] block:^(FKFormMapping *formMapping) {
         [formMapping sectionWithTitle:@"Header" footer:@"Footer" identifier:@"info"];
         [formMapping mapAttribute:@"title" title:@"Title" type:FKFormAttributeMappingTypeText];
-        [formMapping mapAttribute:@"releaseDate" title:@"ReleaseDate" type:FKFormAttributeMappingTypeDate dateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        
+//        [formMapping mapAttribute:@"releaseDate" title:@"ReleaseDate" type:FKFormAttributeMappingTypeDate dateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        
+        [formMapping mappingForAttribute:@"releaseDate"
+                                   title:@"ReleaseDate"
+                                    type:FKFormAttributeMappingTypeDate
+                        attributeMapping:^(FKFormAttributeMapping *mapping) {
+                                     
+                                     mapping.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+                                 }];
+        
         [formMapping mapAttribute:@"suitAllAges" title:@"All ages" type:FKFormAttributeMappingTypeBoolean];
         [formMapping mapAttribute:@"shortName" title:@"ShortName" type:FKFormAttributeMappingTypeLabel];
         [formMapping mapAttribute:@"numberOfActor" title:@"Number of actor" type:FKFormAttributeMappingTypeInteger];

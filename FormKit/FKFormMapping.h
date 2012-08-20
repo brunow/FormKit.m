@@ -112,4 +112,9 @@
 
 - (FKFormAttributeMapping *)buttonSave:(NSString *)title handler:(FKBasicBlock)blockHandler;
 
+- (void)mappingForAttribute:(NSString *)attribute
+                      title:(NSString *)title
+                       type:(FKFormAttributeMappingType)type
+           attributeMapping:(FKFormMappingAttributeMappingBlock)attributeMappingBlock;
+
 @end
