@@ -453,5 +453,41 @@
 }
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)resignKeyboard:(id)sender {
+    [[self.tableView.superview fk_findFirstResponder] resignFirstResponder];
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)nextField:(id)sender {
+    id activeTextField = [self.tableView fk_findFirstResponder];
+    NSArray* textFields = [self.tableView.superview fk_findTextFields];
+    
+    NSUInteger count = [textFields count];
+    NSUInteger index = [textFields indexOfObject:activeTextField];
+    NSUInteger next = (index + 1) % count;
+
+    [(UITextField *)[textFields objectAtIndex:next] becomeFirstResponder];
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)previousField:(id)sender {
+    id activeTextField = [self.tableView fk_findFirstResponder];
+    NSArray* textFields = [self.tableView.superview fk_findTextFields];
+
+    NSUInteger count = [textFields count];
+    NSUInteger index = [textFields indexOfObject:activeTextField];
+    NSUInteger next = (index + count - 1) % count;
+
+/*
+    [self.fieldsTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:nextIdx inSection:0]
+                                atScrollPosition:UITableViewScrollPositionTop
+                                        animated:YES];
+*/
+    [(UITextField *)[textFields objectAtIndex:next] becomeFirstResponder];
+}
+
 
 @end

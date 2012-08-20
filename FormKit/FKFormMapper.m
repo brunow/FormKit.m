@@ -63,6 +63,11 @@
 
 - (id)cellForClass:(Class)cellClass;
 
+/**
+ Creates a keyboard toolbar
+ */
+- (UIToolbar*)createKeyboardToolbar;
+
 @end
 
 
@@ -295,18 +300,21 @@
         [[(FKTextField *)field textField] setDelegate:self];
         [[(FKTextField *)field textField] setFormAttributeMapping:attributeMapping];
         [[(FKTextField *)field textField] setKeyboardType:attributeMapping.keyboardType];
-        
+        [[(FKTextField *)field textField] setInputAccessoryView:[self createKeyboardToolbar]];
+
     } else if (type == FKFormAttributeMappingTypeFloat) {
         field = [self cellForClass:_formMapping.floatFieldClass];
         [[(FKFloatField *)field textField] setDelegate:self];
         [[(FKFloatField *)field textField] setFormAttributeMapping:attributeMapping];
         [[(FKFloatField *)field textField] setKeyboardType:attributeMapping.keyboardType];
-        
+        [[(FKTextField *)field textField] setInputAccessoryView:[self createKeyboardToolbar]];
+
     } else if (type == FKFormAttributeMappingTypeInteger) {
         field = [self cellForClass:_formMapping.integerFieldClass];
         [[(FKIntegerField *)field textField] setDelegate:self];
         [[(FKIntegerField *)field textField] setFormAttributeMapping:attributeMapping];
         [[(FKIntegerField *)field textField] setKeyboardType:attributeMapping.keyboardType];
+        [[(FKIntegerField *)field textField] setInputAccessoryView:[self createKeyboardToolbar]];
         
     } else if (type == FKFormAttributeMappingTypeLabel) {
         field = [self cellForClass:_formMapping.labelFieldClass];
@@ -316,7 +324,8 @@
         [[(FKPasswordTextField *)field textField] setDelegate:self];
         [[(FKPasswordTextField *)field textField] setFormAttributeMapping:attributeMapping];
         [[(FKPasswordTextField *)field textField] setKeyboardType:attributeMapping.keyboardType];
-        
+        [[(FKPasswordTextField *)field textField] setInputAccessoryView:[self createKeyboardToolbar]];
+
     } else if (type == FKFormAttributeMappingTypeBoolean) {
         field = [self cellForClass:_formMapping.switchFieldClass];
         
@@ -331,7 +340,7 @@
                type == FKFormAttributeMappingTypeDate ||
                type == FKFormAttributeMappingTypeDateTime) {
         field = [self cellForClass:_formMapping.labelFieldClass];
-        
+
     } else if (type == FKFormAttributeMappingTypeSelect && !attributeMapping.showInPicker) {
         field = [self cellForClass:_formMapping.disclosureIndicatorAccessoryField];
         
@@ -543,6 +552,7 @@
 }
 
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -553,6 +563,43 @@
 - (id)cellForClass:(Class)cellClass {
     return [cellClass fk_cellForTableView:self.tableView
                             configureCell:self.formModel.configureCellsBlock];
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (UIToolbar*)createKeyboardToolbar {
+    // Create the 'next' button
+    UIBarButtonItem* nextButton = [[UIBarButtonItem alloc] initWithTitle:@"Next"
+                                                                   style:UIBarButtonItemStyleBordered
+                                                                  target:_formModel
+                                                                  action:@selector(nextField:)];
+
+    // Create the 'previous' button'
+    UIBarButtonItem* previousButton = [[UIBarButtonItem alloc] initWithTitle:@"Previous"
+                                                                       style:UIBarButtonItemStyleBordered
+                                                                      target:_formModel
+                                                                      action:@selector(previousField:)];
+
+    // Create some flexible space
+    UIBarButtonItem* extraSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                                target:nil
+                                                                                action:nil];
+
+    // Create the 'done' button
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                                   style:UIBarButtonItemStyleDone
+                                                                  target:_formModel
+                                                                  action:@selector(resignKeyboard:)];
+
+    // Set the button widths
+    nextButton.width = 70.0f;
+    previousButton.width = 70.0f;
+
+    // Create the toolbar and assign the buttons
+    UIToolbar* keyboardToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 44)];
+    keyboardToolbar.barStyle = UIBarStyleBlackTranslucent;
+    [keyboardToolbar setItems:[[NSArray alloc] initWithObjects: previousButton, nextButton, extraSpace, doneButton, nil]];
+
+    return keyboardToolbar;
 }
 
 
