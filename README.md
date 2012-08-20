@@ -41,6 +41,10 @@ This library is extracted from [BaseKit](https://github.com/brunow/BaseKit).
         
         [mapping buttonSave:@"Save" handler:^{
         }];
+
+	   [formMapping validationForAttribute:@"title" validBlock:^BOOL(id value, id object) {
+            return YES;
+        }];
         
         [self.formModel registerMapping:mapping];
     }];
@@ -66,3 +70,7 @@ FormKit is ARC only and requires iOS 5.
 Bruno Wernimont
 
 - Twitter - [@brunowernimont](http://twitter.com/brunowernimont)
+
+## Contributors
+
+- Reiner Pittinger - [@rpitting](https://twitter.com/rpitting)
