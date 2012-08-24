@@ -136,7 +136,7 @@
         }
         
     } else {
-        id value = [self valueForAttriteMapping:attributeMapping];
+        id value = [self valueForAttributeMapping:attributeMapping];
         [self mapAttributeMapping:attributeMapping value:value withField:field];
         field.textLabel.text = attributeMapping.title;
         if ([self.formModel.invalidAttributes containsObject:attributeMapping.attribute]) {
@@ -157,7 +157,7 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-- (id)valueForAttriteMapping:(FKFormAttributeMapping *)attributeMapping {
+- (id)valueForAttributeMapping:(FKFormAttributeMapping *)attributeMapping {
     return [self valueOfObjectForKeyPath:attributeMapping.attribute];
 }
 
