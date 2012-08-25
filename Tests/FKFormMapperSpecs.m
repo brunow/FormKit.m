@@ -80,7 +80,7 @@ describe(@"", ^{
     it(@"should return right value for attribute", ^{
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
         FKFormAttributeMapping *attributeMapping = [_mapper attributeMappingAtIndexPath:indexPath];
-        id value = [_mapper valueForAttriteMapping:attributeMapping];;
+        id value = [_mapper valueForAttributeMapping:attributeMapping];;
         id expected = _book.title;        
         [[value should] equal:expected];
     });
