@@ -367,7 +367,7 @@
     Class controllerClass = (attributeMapping.controllerClass == nil) ?
                             self.longTextControllerClass : attributeMapping.controllerClass;
     
-    NSString *value = [self.formMapper valueForAttriteMapping:attributeMapping];
+    NSString *value = [self.formMapper valueForAttributeMapping:attributeMapping];
     BWLongTextViewController *vc = [[controllerClass alloc] initWithText:value];
     vc.title = attributeMapping.title;
     vc.textView.delegate = self.formMapper;
@@ -386,7 +386,7 @@
         [weakRef reloadRowWithAttributeMapping:formAttributeMapping];
     };
     
-    NSString *value = [self.formMapper valueForAttriteMapping:attributeMapping];
+    NSString *value = [self.formMapper valueForAttributeMapping:attributeMapping];
     NSInteger selectedIndex = 0;
     ActionSheetStringPicker *picker;
     picker = [ActionSheetStringPicker showPickerWithTitle:attributeMapping.title

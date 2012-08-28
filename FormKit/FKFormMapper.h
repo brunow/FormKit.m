@@ -51,7 +51,7 @@
 
 - (FKFormAttributeMapping *)attributeMappingAtIndexPath:(NSIndexPath *)indexPath;
 
-- (id)valueForAttriteMapping:(FKFormAttributeMapping *)attributeMapping;
+- (id)valueForAttributeMapping:(FKFormAttributeMapping *)attributeMapping;
 
 - (void)setValue:(id)value forAttributeMapping:(FKFormAttributeMapping *)attributeMapping;
 
