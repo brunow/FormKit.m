@@ -10,6 +10,10 @@ This library is extracted from [BaseKit](https://github.com/brunow/BaseKit).
 
 **Copy FormKit** dir into your project.
 
+Or with **Cocoapods**
+
+	pod 'FormKit.m', :git => "https://github.com/brunow/FormKit.m", :tag => "0.1.1"
+
 ## Example code
 
 	self.formModel = [FKFormModel formTableModelForTableView:self.tableView navigationController:self.navigationController];
