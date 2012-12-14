@@ -45,10 +45,6 @@ Or with **Cocoapods**
         
         [mapping buttonSave:@"Save" handler:^{
         }];
-
-	   [formMapping validationForAttribute:@"title" validBlock:^BOOL(id value, id object) {
-            return YES;
-        }];
         
         [self.formModel registerMapping:mapping];
     }];
@@ -56,6 +52,14 @@ Or with **Cocoapods**
     [self.formModel loadFieldsWithObject:movie];
 
 ![Form Mapping](https://github.com/brunow/FormKit.m/raw/master/form-mapping.png)
+
+## Validation
+
+	[formMapping validationForAttribute:@"title" validBlock:^BOOL(NSString *value, id object) {
+         return value.length < 10;
+     } errorMessageBlock:^NSString *(id value, id object) {
+         return @"Text is too long.";
+     }];
 
 ## Migrating form BaseKit FormMapping
 
