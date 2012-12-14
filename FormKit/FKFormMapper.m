@@ -265,7 +265,7 @@
         [(FKTextField *)field textField].text = convertedValue;
         [(FKTextField *)field textField].placeholder = attributeMapping.placeholderText;
         
-    } else if ([field isKindOfClass:[FKSwitchField class]] && [convertedValue isKindOfClass:[NSNumber class]]) {
+    } else if ([field isKindOfClass:[FKSwitchField class]]) {
         UISwitch *switchControl = [(FKSwitchField *)field switchControl];
         switchControl.on = [(NSNumber *)convertedValue boolValue];
         switchControl.formAttributeMapping = attributeMapping;
