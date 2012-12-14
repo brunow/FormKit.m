@@ -263,6 +263,16 @@
 - (void)save {
     // Because value of UITextField is saved after resign
     [[self.tableView fk_findFirstResponder] resignFirstResponder];
+    
+    [self validateForm];
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)validateForm {
+    [self.formMapping.attributeValidations enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [self.formMapper validateFieldWithAttribute:key];
+    }];
 }
 
 

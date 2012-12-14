@@ -59,4 +59,6 @@
 
 - (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 
+- (void)validateFieldWithAttribute:(NSString *)attribute;
+
 @end

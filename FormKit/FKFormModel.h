@@ -108,4 +108,6 @@
  */
 - (void)save;
 
+- (void)validateForm;
+
 @end

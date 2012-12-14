@@ -175,9 +175,9 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)setValue:(id)value forAttributeMapping:(FKFormAttributeMapping *)attributeMapping {
-    [self.object setValue:value forKeyPath:attributeMapping.attribute];
-    
+- (void)validateFieldWithAttribute:(NSString *)attribute {
+    FKFormAttributeMapping *attributeMapping = [self.formMapping.attributeMappings objectForKey:attribute];
+    id value = [self valueForAttributeMapping:attributeMapping];
     FKFormAttributeValidation *attributeValidation = [self.formMapping.attributeValidations objectForKey:attributeMapping.attribute];
     
     if (nil != attributeValidation) {
@@ -197,6 +197,13 @@
         
         [self.formModel reloadRowWithIdentifier:attributeMapping.attribute];
     }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)setValue:(id)value forAttributeMapping:(FKFormAttributeMapping *)attributeMapping {
+    [self.object setValue:value forKeyPath:attributeMapping.attribute];
+    [self validateFieldWithAttribute:attributeMapping.attribute];
     
     if (nil != self.formModel.didChangeValueBlock) {
         self.formModel.didChangeValueBlock([self.formModel object], value, attributeMapping.attribute);
