@@ -107,7 +107,7 @@
                           constrainedToSize:CGSizeMake(contentViewWidth, 5000)
                               lineBreakMode:errorLabelLineBreakMode];
     
-    return stringSize.height;
+    return stringSize.height + 5;
 }
 
 

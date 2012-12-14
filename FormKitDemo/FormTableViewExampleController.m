@@ -71,9 +71,9 @@
         [formMapping mapAttribute:@"content" title:@"Content" type:FKFormAttributeMappingTypeBigText];
 
 //        Doesn't work very good now
-//        [formMapping mapSliderAttribute:@"rate" title:@"Rate" minValue:0 maxValue:10 valueBlock:^NSString *(id value) {
-//            return [NSString stringWithFormat:@"%.1f", [value floatValue]];
-//        }];
+        [formMapping mapSliderAttribute:@"rate" title:@"Rate" minValue:0 maxValue:10 valueBlock:^NSString *(id value) {
+            return [NSString stringWithFormat:@"%.1f", [value floatValue]];
+        }];
         
         [formMapping mapAttribute:@"choice"
                             title:@"Choices"
