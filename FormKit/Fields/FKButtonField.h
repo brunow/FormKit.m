@@ -19,6 +19,6 @@
 
 #import "FKSimpleField.h"
 
-@interface FKButtonField : FKSimpleField
+@interface FKButtonField : UITableViewCell
 
 @end

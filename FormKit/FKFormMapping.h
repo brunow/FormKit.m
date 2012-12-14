@@ -121,4 +121,8 @@
 
 - (void)validationForAttribute:(NSString *)attribute validBlock:(FKFormMappingIsValueValidBlock)validBlock;
 
+- (void)validationForAttribute:(NSString *)attribute
+                    validBlock:(FKFormMappingIsValueValidBlock)validBlock
+             errorMessageBlock:(FKFormMappingFieldErrorStringBlock)errorMessageBlock;
+
 @end

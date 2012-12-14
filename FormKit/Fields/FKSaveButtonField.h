@@ -19,7 +19,7 @@
 
 #import "FKSimpleField.h"
 
-@interface FKSaveButtonField : FKSimpleField
+@interface FKSaveButtonField : UITableViewCell
 
 - (void)setTitle:(NSString *)title;
 

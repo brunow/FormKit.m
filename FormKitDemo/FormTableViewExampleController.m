@@ -123,6 +123,13 @@
         
         [formMapping validationForAttribute:@"title" validBlock:^BOOL(NSString *value, id object) {
             return value.length < 10;
+            
+        } errorMessageBlock:^NSString *(id value, id object) {
+            return @"Text is too long.";
+        }];
+        
+        [formMapping validationForAttribute:@"releaseDate" validBlock:^BOOL(id value, id object) {
+            return NO;
         }];
         
         [self.formModel registerMapping:formMapping];

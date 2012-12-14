@@ -39,8 +39,10 @@ typedef NSString *(^FKFormMappingSliderValueBlock)(id value);
 
 typedef void(^FKFormMappingDidChangeValueBlock)(id object, id value, NSString *keyPath);
 
-typedef void (^FKFormMappingConfigureCellBlock)(UITableViewCell *cell);
+typedef void(^FKFormMappingConfigureCellBlock)(UITableViewCell *cell);
 
-typedef void (^FKFormMappingAttributeMappingBlock)(FKFormAttributeMapping *mapping);
+typedef void(^FKFormMappingAttributeMappingBlock)(FKFormAttributeMapping *mapping);
 
-typedef BOOL (^FKFormMappingIsValueValidBlock)(id value, id object);
+typedef BOOL(^FKFormMappingIsValueValidBlock)(id value, id object);
+
+typedef NSString *(^FKFormMappingFieldErrorStringBlock)(id value, id object);

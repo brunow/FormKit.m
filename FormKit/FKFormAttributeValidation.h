@@ -23,6 +23,7 @@
 
 @property (nonatomic, copy) NSString *attribute;
 @property (nonatomic, copy) FKFormMappingIsValueValidBlock valueValidBlock;
+@property (nonatomic, copy) FKFormMappingFieldErrorStringBlock errorMessageBlock;
 
 /*
  * Convenient method to get an attributeValidation

@@ -25,7 +25,7 @@
     FKFormMapping *_formMapping;
     UITableView *_tableView;
     id _object;
-    FKFormModel *_formModel;
+    __weak FKFormModel *_formModel;
 }
 
 @property (nonatomic, readonly) FKFormMapping *formMapping;

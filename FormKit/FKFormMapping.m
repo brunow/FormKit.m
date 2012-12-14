@@ -333,10 +333,22 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)validationForAttribute:(NSString *)attribute validBlock:(FKFormMappingIsValueValidBlock)validBlock {
+- (void)validationForAttribute:(NSString *)attribute
+                    validBlock:(FKFormMappingIsValueValidBlock)validBlock {
+    
+    [self validationForAttribute:attribute validBlock:validBlock errorMessageBlock:nil];
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)validationForAttribute:(NSString *)attribute
+                    validBlock:(FKFormMappingIsValueValidBlock)validBlock
+             errorMessageBlock:(FKFormMappingFieldErrorStringBlock)errorMessageBlock {
+    
     FKFormAttributeValidation *attributeValidation = [FKFormAttributeValidation attributeValidation];
     attributeValidation.attribute = attribute;
     attributeValidation.valueValidBlock = validBlock;
+    attributeValidation.errorMessageBlock = errorMessageBlock;
     [_attributeValidations setObject:attributeValidation forKey:attribute];
 }
 

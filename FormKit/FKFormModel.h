@@ -41,21 +41,33 @@
  
  You should call reloadData on your table view after setting this value.
  */
-@property (nonatomic,strong) NSSet* invalidAttributes;
+@property (nonatomic,strong) NSSet *invalidAttributes;
 
 /**
  Default text color used for the title label in table cells for attribues with valid values.
  
  The default is black.
+ 
+ Not used anymore
  */
-@property (nonatomic,strong) UIColor* validationNormalColor;
+@property (nonatomic,strong) UIColor *validationNormalColor DEPRECATED_ATTRIBUTE;
 
 /**
  Color used for the title label in table cells for attribues with invalid values.
  
  The default is red.
  */
-@property (nonatomic,strong) UIColor* validationErrorColor;
+@property (nonatomic,strong) UIColor *validationErrorColor;
+
+/**
+ Cell background color in table cells for attribues with values.
+ */
+@property (nonatomic, strong) UIColor *validationNormalCellBackgroundColor;
+
+/**
+ Cell background color in table cells for attribues with invalid values.
+ */
+@property (nonatomic, strong) UIColor *validationErrorCellBackgroundColor;
 
 + (id)formTableModelForTableView:(UITableView *)tableView;
 

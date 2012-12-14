@@ -17,6 +17,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FKSimpleField : UITableViewCell
+#import "FKFieldErrorProtocol.h"
+
+@interface FKSimpleField : UITableViewCell<FKFieldErrorProtocol>
+
+@property (nonatomic, strong) UILabel *errorLabel;
 
 @end

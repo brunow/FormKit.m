@@ -17,6 +17,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FKImageField : NSObject
+#import "FKSimpleField.h"
+
+@interface FKImageField : FKSimpleField
 
 @end

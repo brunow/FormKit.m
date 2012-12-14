@@ -25,6 +25,8 @@
 #import "FKSectionObject.h"
 #import "UITableViewCell+FormKit.h"
 #import "FKFormAttributeValidation.h"
+#import "FKFieldErrorProtocol.h"
+#import "FKFieldErrorProtocol.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -129,6 +131,7 @@
     FKFormAttributeMapping *attributeMapping = [self attributeMappingAtIndexPath:indexPath];
     Class sourceClass = [self classFromSourcePropertyAtIndexPath:indexPath keyPath:attributeMapping.attribute];
     UITableViewCell *field = [self cellWithAttributeMapping:attributeMapping sourceClass:sourceClass];
+    field.backgroundColor = self.formModel.validationNormalCellBackgroundColor;
     
     if (FKFormAttributeMappingTypeCustomCell == attributeMapping.type) {
         if (nil != attributeMapping.willDisplayCellBlock) {
@@ -139,10 +142,19 @@
         id value = [self valueForAttributeMapping:attributeMapping];
         [self mapAttributeMapping:attributeMapping value:value withField:field];
         field.textLabel.text = attributeMapping.title;
+        FKFormAttributeValidation *attributeValidation = [self.formMapping.attributeValidations objectForKey:attributeMapping.attribute];
+        
         if ([self.formModel.invalidAttributes containsObject:attributeMapping.attribute]) {
-            field.textLabel.textColor = self.formModel.validationErrorColor;
-        } else {
-            field.textLabel.textColor = self.formModel.validationNormalColor;
+            if ([field conformsToProtocol:@protocol(FKFieldErrorProtocol)]) {
+                UITableViewCell <FKFieldErrorProtocol> *errorField = (UITableViewCell <FKFieldErrorProtocol> *)field;
+                [errorField setErrorBackgroundColor:self.formModel.validationErrorCellBackgroundColor];
+                
+                if (nil != attributeValidation.errorMessageBlock) {
+                    id value = [self valueForAttributeMapping:attributeMapping];
+                    [errorField addError:attributeValidation.errorMessageBlock(value, self.object)];
+                    [errorField setErrorTextColor:self.formModel.validationErrorColor];
+                }
+            }
         }
     }
     
@@ -284,68 +296,109 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-- (FKSimpleField *)cellWithAttributeMapping:(FKFormAttributeMapping *)attributeMapping
-                                sourceClass:(Class)sourceClass {
+- (Class)cellClassWithAttributeMapping:(FKFormAttributeMapping *)attributeMapping {
     
-    FKSimpleField *field = nil;
     FKFormAttributeMappingType type = attributeMapping.type;
-
+    
     if (type == FKFormAttributeMappingTypeText) {
-        field = [self cellForClass:_formMapping.textFieldClass];
-        [[(FKTextField *)field textField] setDelegate:self];
-        [[(FKTextField *)field textField] setFormAttributeMapping:attributeMapping];
-        [[(FKTextField *)field textField] setKeyboardType:attributeMapping.keyboardType];
+        return _formMapping.textFieldClass;
         
     } else if (type == FKFormAttributeMappingTypeFloat) {
-        field = [self cellForClass:_formMapping.floatFieldClass];
-        [[(FKFloatField *)field textField] setDelegate:self];
-        [[(FKFloatField *)field textField] setFormAttributeMapping:attributeMapping];
-        [[(FKFloatField *)field textField] setKeyboardType:attributeMapping.keyboardType];
+        return _formMapping.floatFieldClass;
         
     } else if (type == FKFormAttributeMappingTypeInteger) {
-        field = [self cellForClass:_formMapping.integerFieldClass];
-        [[(FKIntegerField *)field textField] setDelegate:self];
-        [[(FKIntegerField *)field textField] setFormAttributeMapping:attributeMapping];
-        [[(FKIntegerField *)field textField] setKeyboardType:attributeMapping.keyboardType];
+        return _formMapping.integerFieldClass;
         
     } else if (type == FKFormAttributeMappingTypeLabel) {
-        field = [self cellForClass:_formMapping.labelFieldClass];
+        return _formMapping.labelFieldClass;
         
     } else if (type == FKFormAttributeMappingTypePassword) {
-        field = [self cellForClass:_formMapping.passwordFieldClass];
-        [[(FKPasswordTextField *)field textField] setDelegate:self];
-        [[(FKPasswordTextField *)field textField] setFormAttributeMapping:attributeMapping];
-        [[(FKPasswordTextField *)field textField] setKeyboardType:attributeMapping.keyboardType];
+        return _formMapping.passwordFieldClass;
         
     } else if (type == FKFormAttributeMappingTypeBoolean) {
-        field = [self cellForClass:_formMapping.switchFieldClass];
+        return _formMapping.switchFieldClass;
         
     } else if (type == FKFormAttributeMappingTypeSaveButton) {
-        field = [self cellForClass:_formMapping.saveButtonFieldClass];
+        return _formMapping.saveButtonFieldClass;
         
     } else if (type == FKFormAttributeMappingTypeButton) {
-        field = [self cellForClass:_formMapping.buttonFieldClass];
+        return _formMapping.buttonFieldClass;
         
     } else if ((type == FKFormAttributeMappingTypeSelect && attributeMapping.showInPicker) ||
                type == FKFormAttributeMappingTypeTime ||
                type == FKFormAttributeMappingTypeDate ||
                type == FKFormAttributeMappingTypeDateTime) {
-        field = [self cellForClass:_formMapping.labelFieldClass];
+        return _formMapping.labelFieldClass;
         
     } else if (type == FKFormAttributeMappingTypeSelect && !attributeMapping.showInPicker) {
-        field = [self cellForClass:_formMapping.disclosureIndicatorAccessoryField];
+        return _formMapping.disclosureIndicatorAccessoryField;
         
     } else if (type == FKFormAttributeMappingTypeBigText) {
-        field = [self cellForClass:_formMapping.disclosureIndicatorAccessoryField];
+        return _formMapping.disclosureIndicatorAccessoryField;
         
     } else if (type == FKFormAttributeMappingTypeCustomCell) {
-        field = [self cellForClass:attributeMapping.customCell];
+        return attributeMapping.customCell;
         
     } else if (type == FKFormAttributeMappingTypeSlider) {
-        field = [self cellForClass:_formMapping.sliderFieldClass];
+        return _formMapping.sliderFieldClass;
         
     } else {
-        field = [self cellForClass:_formMapping.labelFieldClass];
+        return _formMapping.labelFieldClass;
+    }
+    
+    return _formMapping.labelFieldClass;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (FKSimpleField *)cellWithAttributeMapping:(FKFormAttributeMapping *)attributeMapping
+                                sourceClass:(Class)sourceClass {
+    
+    FKFormAttributeMappingType type = attributeMapping.type;
+    Class cellClass = [self cellClassWithAttributeMapping:attributeMapping];
+    FKSimpleField *field = [self cellForClass:cellClass];
+
+    if (type == FKFormAttributeMappingTypeText) {
+        [[(FKTextField *)field textField] setDelegate:self];
+        [[(FKTextField *)field textField] setFormAttributeMapping:attributeMapping];
+        [[(FKTextField *)field textField] setKeyboardType:attributeMapping.keyboardType];
+        
+    } else if (type == FKFormAttributeMappingTypeFloat) {
+        [[(FKFloatField *)field textField] setDelegate:self];
+        [[(FKFloatField *)field textField] setFormAttributeMapping:attributeMapping];
+        [[(FKFloatField *)field textField] setKeyboardType:attributeMapping.keyboardType];
+        
+    } else if (type == FKFormAttributeMappingTypeInteger) {
+        [[(FKIntegerField *)field textField] setDelegate:self];
+        [[(FKIntegerField *)field textField] setFormAttributeMapping:attributeMapping];
+        [[(FKIntegerField *)field textField] setKeyboardType:attributeMapping.keyboardType];
+        
+    } else if (type == FKFormAttributeMappingTypeLabel) {
+        
+    } else if (type == FKFormAttributeMappingTypePassword) {
+        [[(FKPasswordTextField *)field textField] setDelegate:self];
+        [[(FKPasswordTextField *)field textField] setFormAttributeMapping:attributeMapping];
+        [[(FKPasswordTextField *)field textField] setKeyboardType:attributeMapping.keyboardType];
+        
+    } else if (type == FKFormAttributeMappingTypeBoolean) {
+        
+    } else if (type == FKFormAttributeMappingTypeSaveButton) {
+        
+    } else if (type == FKFormAttributeMappingTypeButton) {
+        
+    } else if ((type == FKFormAttributeMappingTypeSelect && attributeMapping.showInPicker) ||
+               type == FKFormAttributeMappingTypeTime ||
+               type == FKFormAttributeMappingTypeDate ||
+               type == FKFormAttributeMappingTypeDateTime) {
+        
+    } else if (type == FKFormAttributeMappingTypeSelect && !attributeMapping.showInPicker) {
+        
+    } else if (type == FKFormAttributeMappingTypeBigText) {
+        
+    } else if (type == FKFormAttributeMappingTypeCustomCell) {
+        
+    } else if (type == FKFormAttributeMappingTypeSlider) {
+        
     }
     
     return field;
@@ -493,7 +546,20 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     FKFormAttributeMapping *attributeMapping = [self attributeMappingAtIndexPath:indexPath];
-    return attributeMapping.rowHeight > 0 ? attributeMapping.rowHeight : self.tableView.rowHeight;
+    FKFormAttributeValidation *attributeValidation = [self.formMapping.attributeValidations objectForKey:attributeMapping.attribute];
+    CGFloat rowHeight = attributeMapping.rowHeight > 0 ? attributeMapping.rowHeight : self.tableView.rowHeight;
+    
+    if ([self.formModel.invalidAttributes containsObject:attributeMapping.attribute] &&
+        nil != attributeValidation.errorMessageBlock) {
+        
+        Class<FKFieldErrorProtocol> cellClass = [self cellClassWithAttributeMapping:attributeMapping];
+        id value = [self valueForAttributeMapping:attributeMapping];
+        
+        rowHeight += [cellClass errorHeightWithError:attributeValidation.errorMessageBlock(value, self.object)
+                                      tableView:self.tableView];
+    }
+    
+    return rowHeight;
 }
 
 

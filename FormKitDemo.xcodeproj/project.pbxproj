@@ -73,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E702EAEA167B5121002225A4 /* FKFieldErrorProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FKFieldErrorProtocol.h; sourceTree = "<group>"; };
 		E721801115AB637F00C61C03 /* libKiwi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKiwi.a; path = "../dev/xcodeBuilds/Release-iphoneos/libKiwi.a"; sourceTree = "<group>"; };
 		E7504DC115C7C95A00286ACA /* FKDisclosureIndicatorAccessoryField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKDisclosureIndicatorAccessoryField.h; sourceTree = "<group>"; };
 		E7504DC215C7C95A00286ACA /* FKDisclosureIndicatorAccessoryField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKDisclosureIndicatorAccessoryField.m; sourceTree = "<group>"; };
@@ -346,6 +347,7 @@
 				E7A022A915A98F5F00941942 /* FKValueViewField.m */,
 				E7504DC115C7C95A00286ACA /* FKDisclosureIndicatorAccessoryField.h */,
 				E7504DC215C7C95A00286ACA /* FKDisclosureIndicatorAccessoryField.m */,
+				E702EAEA167B5121002225A4 /* FKFieldErrorProtocol.h */,
 			);
 			path = Fields;
 			sourceTree = "<group>";
