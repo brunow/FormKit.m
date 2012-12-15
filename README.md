@@ -12,7 +12,7 @@ This library is extracted from [BaseKit](https://github.com/brunow/BaseKit).
 
 Or with **Cocoapods**
 
-	pod 'FormKit.m', :git => "https://github.com/brunow/FormKit.m", :tag => "0.2.0"
+	pod 'FormKit.m', :git => "https://github.com/brunow/FormKit.m.git", :tag => "0.2.0"
 
 ## Example code
 
