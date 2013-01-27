@@ -585,7 +585,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)sliderFieldValueDidChange:(UISlider *)sender {
     [self setValue:[NSNumber numberWithFloat:sender.value] forAttributeMapping:sender.formAttributeMapping];
-    [self.formModel reloadRowWithAttributeMapping:sender.formAttributeMapping];
 }
 
 
