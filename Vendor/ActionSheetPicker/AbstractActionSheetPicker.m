@@ -175,7 +175,7 @@
     [self.customButtons addObject:buttonDetails];
 }
 
-- (IBAction)customButtonPressed:(id)sender {
+- (void)customButtonPressed:(id)sender {
     UIBarButtonItem *button = (UIBarButtonItem*)sender;
     NSInteger index = button.tag;
     NSAssert((index >= 0 && index < self.customButtons.count), @"Bad custom button tag: %d, custom button count: %d", index, self.customButtons.count);
