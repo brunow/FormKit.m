@@ -93,8 +93,12 @@
 + (CGFloat)errorHeightWithError:(NSString *)error tableView:(UITableView *)tableView {
     static CGFloat contentViewWidth = 0;
     static UIFont *errorLabelFont = nil;
+#ifdef __IPHONE_6_0
+    static NSLineBreakMode errorLabelLineBreakMode = 0;
+#else
     static UILineBreakMode errorLabelLineBreakMode = 0;
-    
+#endif
+
     if (0 == contentViewWidth) {
         FKSimpleField<FKFieldErrorProtocol> *cell = [self fk_cellForTableView:tableView configureCell:nil];
         contentViewWidth = cell.contentView.frame.size.width - cell.textLabel.frame.origin.x * 2;

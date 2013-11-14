@@ -175,7 +175,7 @@
     [self.customButtons addObject:buttonDetails];
 }
 
-- (IBAction)customButtonPressed:(id)sender {
+- (void)customButtonPressed:(id)sender {
     UIBarButtonItem *button = (UIBarButtonItem*)sender;
     NSInteger index = button.tag;
     NSAssert((index >= 0 && index < self.customButtons.count), @"Bad custom button tag: %d, custom button count: %d", index, self.customButtons.count);
@@ -225,8 +225,12 @@
 
 - (UIBarButtonItem *)createToolbarLabelWithTitle:(NSString *)aTitle {
     UILabel *toolBarItemlabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 180,30)];
-    [toolBarItemlabel setTextAlignment:UITextAlignmentCenter];    
-    [toolBarItemlabel setTextColor:[UIColor whiteColor]];    
+#ifdef __IPHONE_6_0
+    [toolBarItemlabel setTextAlignment:NSTextAlignmentCenter];
+#else
+    [toolBarItemlabel setTextAlignment:UITextAlignmentCenter];
+#endif
+    [toolBarItemlabel setTextColor:[UIColor whiteColor]];
     [toolBarItemlabel setFont:[UIFont boldSystemFontOfSize:16]];    
     [toolBarItemlabel setBackgroundColor:[UIColor clearColor]];    
     toolBarItemlabel.text = aTitle;    

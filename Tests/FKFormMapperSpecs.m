@@ -155,7 +155,7 @@ describe(@"", ^{
         it(@"should be BKFormAttributeMappingTypeBigText", ^{
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:1];
             id cell = [_mapper cellForRowAtIndexPath:indexPath];
-            [[theValue([cell class]) should] equal:theValue([FKBigTextField class])];
+            [[theValue([cell class]) should] equal:theValue([FKTextField class])];
         });
         
     });
