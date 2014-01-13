@@ -142,18 +142,20 @@
         id value = [self valueForAttributeMapping:attributeMapping];
         [self mapAttributeMapping:attributeMapping value:value withField:field];
         field.textLabel.text = attributeMapping.title;
-        FKFormAttributeValidation *attributeValidation = [self.formMapping.attributeValidations objectForKey:attributeMapping.attribute];
         
-        if ([self.formModel.invalidAttributes containsObject:attributeMapping.attribute]) {
-            if ([field conformsToProtocol:@protocol(FKFieldErrorProtocol)]) {
-                UITableViewCell <FKFieldErrorProtocol> *errorField = (UITableViewCell <FKFieldErrorProtocol> *)field;
-                [errorField setErrorBackgroundColor:self.formModel.validationErrorCellBackgroundColor];
-                
-                if (nil != attributeValidation.errorMessageBlock) {
-                    id value = [self valueForAttributeMapping:attributeMapping];
-                    [errorField addError:attributeValidation.errorMessageBlock(value, self.object)];
-                    [errorField setErrorTextColor:self.formModel.validationErrorColor];
-                }
+    }
+    
+    FKFormAttributeValidation *attributeValidation = [self.formMapping.attributeValidations objectForKey:attributeMapping.attribute];
+    
+    if ([self.formModel.invalidAttributes containsObject:attributeMapping.attribute]) {
+        if ([field conformsToProtocol:@protocol(FKFieldErrorProtocol)]) {
+            UITableViewCell <FKFieldErrorProtocol> *errorField = (UITableViewCell <FKFieldErrorProtocol> *)field;
+            [errorField setErrorBackgroundColor:self.formModel.validationErrorCellBackgroundColor];
+            
+            if (nil != attributeValidation.errorMessageBlock) {
+                id value = [self valueForAttributeMapping:attributeMapping];
+                [errorField addError:attributeValidation.errorMessageBlock(value, self.object)];
+                [errorField setErrorTextColor:self.formModel.validationErrorColor];
             }
         }
     }

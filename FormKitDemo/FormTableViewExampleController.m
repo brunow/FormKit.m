@@ -92,7 +92,7 @@
         
         [formMapping sectionWithTitle:@"Custom cells" identifier:@"customCells"];
         
-        [formMapping mapCustomCell:[UITableViewCell class]
+        [formMapping mapCustomCell:[FKDisclosureIndicatorAccessoryField class]
                         identifier:@"custom"
                          rowHeight:70
               willDisplayCellBlock:^(UITableViewCell *cell, id object, NSIndexPath *indexPath) {
@@ -119,6 +119,12 @@
             NSLog(@"save pressed");
             NSLog(@"%@", self.movie);
             [self.formModel save];
+        }];
+        
+        [formMapping validationForAttribute:@"custom" validBlock:^BOOL(id value, id object) {
+            return NO;
+        } errorMessageBlock:^NSString *(id value, id object) {
+            return @"Error";
         }];
         
         [formMapping validationForAttribute:@"title" validBlock:^BOOL(NSString *value, id object) {

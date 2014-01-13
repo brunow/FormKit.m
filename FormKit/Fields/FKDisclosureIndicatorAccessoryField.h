@@ -9,7 +9,10 @@
 #import <Foundation/Foundation.h>
 
 #import "FKLabelField.h"
+#import "FKFieldErrorProtocol.h"
 
-@interface FKDisclosureIndicatorAccessoryField : FKLabelField
+@interface FKDisclosureIndicatorAccessoryField : FKLabelField <FKFieldErrorProtocol>
+
+@property (nonatomic, strong) UILabel *errorLabel;
 
 @end
