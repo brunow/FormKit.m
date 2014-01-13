@@ -110,4 +110,6 @@
 
 - (void)validateForm;
 
+- (void)validateFieldWithIdentifier:(NSString *)identifier;
+
 @end

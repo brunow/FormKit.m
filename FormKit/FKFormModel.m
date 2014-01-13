@@ -269,6 +269,12 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)validateFieldWithIdentifier:(NSString *)identifier {
+    [self.formMapper validateFieldWithAttribute:identifier];
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)validateForm {
     [self.formMapping.attributeValidations enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [self.formMapper validateFieldWithAttribute:key];
