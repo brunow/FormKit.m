@@ -6,6 +6,8 @@ It also handles synchronization of data between your model and the view (cells) 
 
 This library is extracted from [BaseKit](https://github.com/brunow/BaseKit).
 
+Everything looks good on iPhone and iPad for iOS versions 6+.
+
 ## Installation
 
 **Copy FormKit** dir into your project.
