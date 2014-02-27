@@ -84,3 +84,7 @@ Bruno Wernimont
 ## Contributors
 
 - Reiner Pittinger - [@rpitting](https://twitter.com/rpitting)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/brunow/formkit.m/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
