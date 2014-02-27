@@ -4,8 +4,6 @@ FormKit.m is a library that helps building forms with a table view.
 
 It also handles synchronization of data between your model and the view (cells) when the user makes edits.
 
-This library is extracted from [BaseKit](https://github.com/brunow/BaseKit).
-
 Everything looks good on iPhone and iPad for iOS versions 6+.
 
 ## Installation
@@ -14,7 +12,7 @@ Everything looks good on iPhone and iPad for iOS versions 6+.
 
 Or with **Cocoapods**
 
-	pod 'FormKit.m', :git => "https://github.com/brunow/FormKit.m.git", :tag => "0.2.0"
+	pod 'FormKit.m', :git => "https://github.com/brunow/FormKit.m.git", :tag => "0.3.0"
 
 ## Example code
 
@@ -62,18 +60,6 @@ Or with **Cocoapods**
      } errorMessageBlock:^NSString *(id value, id object) {
          return @"Text is too long.";
      }];
-
-## Migrating form BaseKit FormMapping
-
-The biggest change is that classes are now prefixed with `FK` instead of `BK`.
-
-## ARC
-
-FormKit is ARC only and requires iOS 5.
-
-## Changelog
-
-- Master branch
 
 ## Contact
 
