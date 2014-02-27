@@ -1,6 +1,6 @@
 //
-// Created by Bruno Wernimont on 2012
-// Copyright 2012 FormKit
+// Created by Bruno Wernimont on 2014
+// Copyright 2014 FormKit
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,15 +15,12 @@
 // limitations under the License.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-#import "FKValueViewField.h"
-#import "FKFieldValueTextAligmentProtocol.h"
+@protocol FKFieldLabelHiddenableProtocol <NSObject>
 
-@interface FKTextField : FKValueViewField <FKFieldValueTextAligmentProtocol> {
-    UITextField *_textField;
-}
+@optional
 
-@property (nonatomic, readonly) UITextField *textField;
+- (void)hideLabel;
 
 @end

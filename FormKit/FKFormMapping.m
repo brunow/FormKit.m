@@ -323,6 +323,16 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)mappingForAttribute:(NSString *)attribute
+           attributeMapping:(FKFormMappingAttributeMappingBlock)attributeMappingBlock {
+    
+    [self mappingForAttribute:attribute
+                        title:nil
+                         type:FKFormAttributeMappingTypeDefault attributeMapping:attributeMappingBlock];
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)mappingForAttribute:(NSString *)attribute
                       title:(NSString *)title
                        type:(FKFormAttributeMappingType)type
            attributeMapping:(FKFormMappingAttributeMappingBlock)attributeMappingBlock {

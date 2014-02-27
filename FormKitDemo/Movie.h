@@ -22,6 +22,7 @@
 @property (nonatomic, retain) NSString *shortName;
 @property (nonatomic, retain) NSString *choice;
 @property (nonatomic, retain) NSNumber *rate;
+@property (nonatomic, strong) NSString *subtitle;
 
 + (id)movieWithTitle:(NSString *)title content:(NSString *)content;
 

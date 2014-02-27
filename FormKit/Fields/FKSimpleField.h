@@ -22,5 +22,6 @@
 @interface FKSimpleField : UITableViewCell<FKFieldErrorProtocol>
 
 @property (nonatomic, strong) UILabel *errorLabel;
+@property (nonatomic, assign) CGFloat xMargin;
 
 @end

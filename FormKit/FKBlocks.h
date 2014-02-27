@@ -46,3 +46,5 @@ typedef void(^FKFormMappingAttributeMappingBlock)(FKFormAttributeMapping *mappin
 typedef BOOL(^FKFormMappingIsValueValidBlock)(id value, id object);
 
 typedef NSString *(^FKFormMappingFieldErrorStringBlock)(id value, id object);
+
+typedef void(^FKFormMappingAttributeConfigurationBlock)(FKFormAttributeMapping *mapping);

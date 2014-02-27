@@ -64,6 +64,11 @@ typedef enum {
 @property (nonatomic, assign) BOOL showInPicker;
 @property (nonatomic, copy) FKFormMappingSliderValueBlock sliderValueBlock;
 @property (nonatomic, assign) UIKeyboardType keyboardType;
+@property (nonatomic, assign) BOOL hideLabel;
+@property (nonatomic, assign) NSTextAlignment textAlignment;
+@property (nonatomic, assign) NSTextAlignment valueTextAlignment;
+@property (nonatomic, assign) BOOL clearsOnBeginEditing;
+@property (nonatomic, assign) UITextAutocorrectionType autocorrectionType;
 
 /*
  * Convenient method to get an attributeMapping

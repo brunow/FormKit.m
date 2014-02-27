@@ -36,6 +36,7 @@
         self.errorLabel.numberOfLines = 0;
         self.errorLabel.font = [UIFont boldSystemFontOfSize:15];
         [self.contentView addSubview:self.errorLabel];
+        self.xMargin = 12;
     }
     return self;
 }
@@ -56,6 +57,7 @@
     
     CGRect textLabelFrame = self.textLabel.frame;
     textLabelFrame.origin.y = 10;
+    textLabelFrame.origin.x = self.xMargin;
     self.textLabel.frame = textLabelFrame;
     
     CGRect detailTextLabelFrame = self.detailTextLabel.frame;

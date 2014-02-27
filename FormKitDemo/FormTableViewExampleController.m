@@ -55,6 +55,13 @@
         [formMapping sectionWithTitle:@"Header" footer:@"Footer" identifier:@"info"];
         [formMapping mapAttribute:@"title" title:@"Title" type:FKFormAttributeMappingTypeText];
         
+        [formMapping mappingForAttribute:@"subtitle" attributeMapping:^(FKFormAttributeMapping *mapping) {
+            mapping.hideLabel = YES;
+            mapping.type = FKFormAttributeMappingTypeText;
+            mapping.valueTextAlignment = NSTextAlignmentLeft;
+            mapping.placeholderText = @"Subtitle";
+        }];
+        
 //        [formMapping mapAttribute:@"releaseDate" title:@"ReleaseDate" type:FKFormAttributeMappingTypeDate dateFormat:@"yyyy-MM-dd HH:mm:ss"];
         
         [formMapping mappingForAttribute:@"releaseDate"

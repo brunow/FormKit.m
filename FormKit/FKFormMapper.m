@@ -127,11 +127,37 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)configureField:(UITableViewCell *)field withMapping:(FKFormAttributeMapping *)attributeMapping {
+    field.backgroundColor = self.formModel.validationNormalCellBackgroundColor;
+    
+    if (attributeMapping.hideLabel && [field conformsToProtocol:@protocol(FKFieldLabelHiddenableProtocol)]) {
+        UITableViewCell <FKFieldLabelHiddenableProtocol> *hiddenableField = (UITableViewCell <FKFieldLabelHiddenableProtocol> *)field;
+        [hiddenableField hideLabel];
+    }
+    
+    field.textLabel.textAlignment = attributeMapping.textAlignment;
+    field.detailTextLabel.textAlignment = attributeMapping.valueTextAlignment;
+    
+    if (attributeMapping.hideLabel && [field conformsToProtocol:@protocol(FKFieldValueTextAligmentProtocol)]) {
+        UITableViewCell <FKFieldValueTextAligmentProtocol> *alignmentField = (UITableViewCell <FKFieldValueTextAligmentProtocol> *)field;
+        [alignmentField setValueTextAlignment:attributeMapping.valueTextAlignment];
+    }
+    
+    if ([field isKindOfClass:[FKTextField class]]) {
+        FKTextField *textCell = (FKTextField *)field;
+        textCell.textField.clearsOnBeginEditing = attributeMapping.clearsOnBeginEditing;
+        textCell.textField.autocorrectionType = attributeMapping.autocorrectionType;
+    }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 - (UITableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FKFormAttributeMapping *attributeMapping = [self attributeMappingAtIndexPath:indexPath];
     Class sourceClass = [self classFromSourcePropertyAtIndexPath:indexPath keyPath:attributeMapping.attribute];
     UITableViewCell *field = [self cellWithAttributeMapping:attributeMapping sourceClass:sourceClass];
-    field.backgroundColor = self.formModel.validationNormalCellBackgroundColor;
+    
+    [self configureField:field withMapping:attributeMapping];
     
     if (FKFormAttributeMappingTypeCustomCell == attributeMapping.type) {
         if (nil != attributeMapping.willDisplayCellBlock) {

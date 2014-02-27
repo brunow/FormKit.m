@@ -17,7 +17,9 @@
 
 #import "FKSimpleField.h"
 
-@interface FKValueViewField : FKSimpleField
+#import "FKFieldLabelHiddenableProtocol.h"
+
+@interface FKValueViewField : FKSimpleField <FKFieldLabelHiddenableProtocol>
 
 @property (nonatomic, retain) UIView *valueView;
 

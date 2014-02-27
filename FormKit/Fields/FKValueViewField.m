@@ -30,8 +30,13 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.valueView.frame = CGRectMake(self.textLabel.frame.origin.x + self.textLabel.frame.size.width + 20, self.textLabel.frame.origin.y,
-                                      self.contentView.frame.size.width - self.textLabel.frame.size.width - 40, self.textLabel.frame.size.height);
+    if (self.textLabel.hidden) {
+        self.valueView.frame = CGRectInset(self.bounds, self.xMargin, 0);
+        
+    } else {
+        self.valueView.frame = CGRectMake(self.textLabel.frame.origin.x + self.textLabel.frame.size.width + 20, self.textLabel.frame.origin.y,
+                                          self.contentView.frame.size.width - self.textLabel.frame.size.width - 40, self.textLabel.frame.size.height);
+    }
 }
 
 
@@ -48,6 +53,19 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 + (UITableViewCellStyle)cellStyle {
     return UITableViewCellStyleValue1;
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark FKFieldLabelHiddenableProtocol
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)hideLabel {
+    self.textLabel.hidden = YES;
 }
 
 
