@@ -16,50 +16,54 @@ Or with **Cocoapods**
 
 ## Example code
 
-	self.formModel = [FKFormModel formTableModelForTableView:self.tableView navigationController:self.navigationController];
+```objective-c
+self.formModel = [FKFormModel formTableModelForTableView:self.tableView navigationController:self.navigationController];
+  
+[FKFormMapping mappingForClass:[Movie class] block:^(FKFormMapping *mapping) {
+    [mapping sectionWithTitle:@"Information section" identifier:@"info"];
+    [mapping mapAttribute:@"title" title:@"Title" type:FKFormAttributeMappingTypeText];
+    [mapping mapAttribute:@"releaseDate" title:@"ReleaseDate" type:FKFormAttributeMappingTypeDate];
+    [mapping mapAttribute:@"suitAllAges" title:@"All ages" type:FKFormAttributeMappingTypeBoolean];
     
-    [FKFormMapping mappingForClass:[Movie class] block:^(FKFormMapping *mapping) {
-        [mapping sectiontWithTitle:@"Information section" identifier:@"info"];
-        [mapping mapAttribute:@"title" title:@"Title" type:FKFormAttributeMappingTypeText];
-        [mapping mapAttribute:@"releaseDate" title:@"ReleaseDate" FKFormAttributeMappingTypeDate];
-        [mapping mapAttribute:@"suitAllAges" title:@"All ages" type:FKFormAttributeMappingTypeBoolean];
-        
-        // Read-only field
-        [mapping mapAttribute:@"shortName" title:@"ShortName" type:FKFormAttributeMappingTypeLabel];
-        
-        [mapping mapAttribute:@"numberOfActor" title:@"Number of actor" type:FKFormAttributeMappingTypeInteger];
-        [mapping mapAttribute:@"content" title:@"Content" type:FKFormAttributeMappingTypeBigText];
-        
-        // Select fields using a picker or pushing a selection view controller
-        [formMapping mapAttribute:@"choice"
-                            title:@"Choices"
-                     showInPicker:NO
-                selectValuesBlock:^NSArray *(id value, id object, NSInteger *selectedValueIndex){
-                    *selectedValueIndex = 1;
-                    return [NSArray arrayWithObjects:@"choice1", @"choice2", nil];
-        } valueFromSelectBlock:^id(id value, id object, NSInteger selectedValueIndex) {
-            return value;
-        } labelValueBlock:^id(id value, id object) {
-            return value;
-        }];
-        
-        [mapping buttonSave:@"Save" handler:^{
-        }];
-        
-        [self.formModel registerMapping:mapping];
+    // Read-only field
+    [mapping mapAttribute:@"shortName" title:@"ShortName" type:FKFormAttributeMappingTypeLabel];
+    
+    [mapping mapAttribute:@"numberOfActor" title:@"Number of actor" type:FKFormAttributeMappingTypeInteger];
+    [mapping mapAttribute:@"content" title:@"Content" type:FKFormAttributeMappingTypeBigText];
+    
+    // Select fields using a picker or pushing a selection view controller
+    [formMapping mapAttribute:@"choice"
+                        title:@"Choices"
+                 showInPicker:NO
+            selectValuesBlock:^NSArray *(id value, id object, NSInteger *selectedValueIndex){
+                *selectedValueIndex = 1;
+                return [NSArray arrayWithObjects:@"choice1", @"choice2", nil];
+    } valueFromSelectBlock:^id(id value, id object, NSInteger selectedValueIndex) {
+        return value;
+    } labelValueBlock:^id(id value, id object) {
+        return value;
     }];
     
-    [self.formModel loadFieldsWithObject:movie];
+    [mapping buttonSave:@"Save" handler:^{
+    }];
+    
+    [self.formModel registerMapping:mapping];
+}];
+```
+
+[self.formModel loadFieldsWithObject:movie];
 
 ![Form Mapping](https://github.com/brunow/FormKit.m/raw/master/form-mapping.png)
 
 ## Validation
 
-	[formMapping validationForAttribute:@"title" validBlock:^BOOL(NSString *value, id object) {
-         return value.length < 10;
-     } errorMessageBlock:^NSString *(id value, id object) {
-         return @"Text is too long.";
-     }];
+```objective-c
+[formMapping validationForAttribute:@"title" validBlock:^BOOL(NSString *value, id object) {
+  return value.length < 10;
+} errorMessageBlock:^NSString *(id value, id object) {
+  return @"Text is too long.";
+}];
+```
 
 ## Contact
 
