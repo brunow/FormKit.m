@@ -101,6 +101,9 @@
         self.validationErrorColor = [UIColor colorWithRed:216/255.0f green:98/255.0f blue:98/255.0f alpha:1];
         self.validationErrorCellBackgroundColor = [UIColor colorWithRed:255/255.0f green:235/255.0f blue:235/255.0f alpha:1];
         self.validationNormalCellBackgroundColor = [UIColor colorWithRed:250/255.0f green:250/255.0f blue:250/255.0f alpha:1];
+        
+        self.labelTextColor = [UIColor blackColor];
+        self.valueTextColor = [UIColor lightGrayColor];
     }
     return self;
 }
@@ -304,6 +307,18 @@
     if (object != _object) {
         _object = object;
     }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)setLabelTextColor:(UIColor *)labelTextColor {
+    _labelTextColor = labelTextColor;
+    
+    [[FKSimpleField appearance] setLabelTextColor:labelTextColor];
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)setValueTextColor:(UIColor *)valueTextColor {
+    _valueTextColor = valueTextColor;
 }
 
 

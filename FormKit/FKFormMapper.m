@@ -26,7 +26,7 @@
 #import "UITableViewCell+FormKit.h"
 #import "FKFormAttributeValidation.h"
 #import "FKFieldErrorProtocol.h"
-#import "FKFieldErrorProtocol.h"
+#import "FKFieldStyleProtocol.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -130,23 +130,37 @@
 - (void)configureField:(UITableViewCell *)field withMapping:(FKFormAttributeMapping *)attributeMapping {
     field.backgroundColor = self.formModel.validationNormalCellBackgroundColor;
     
-    if (attributeMapping.hideLabel && [field conformsToProtocol:@protocol(FKFieldLabelHiddenableProtocol)]) {
-        UITableViewCell <FKFieldLabelHiddenableProtocol> *hiddenableField = (UITableViewCell <FKFieldLabelHiddenableProtocol> *)field;
+    if (attributeMapping.hideLabel && [field respondsToSelector:@selector(hideLabel)]) {
+        UITableViewCell <FKFieldStyleProtocol> *hiddenableField = (UITableViewCell <FKFieldStyleProtocol> *)field;
         [hiddenableField hideLabel];
+        
     }
     
     field.textLabel.textAlignment = attributeMapping.textAlignment;
-    field.detailTextLabel.textAlignment = attributeMapping.valueTextAlignment;
     
-    if (attributeMapping.hideLabel && [field conformsToProtocol:@protocol(FKFieldValueTextAligmentProtocol)]) {
-        UITableViewCell <FKFieldValueTextAligmentProtocol> *alignmentField = (UITableViewCell <FKFieldValueTextAligmentProtocol> *)field;
+    if ([field respondsToSelector:@selector(setValueTextAlignment:)]) {
+        UITableViewCell <FKFieldStyleProtocol> *alignmentField = (UITableViewCell <FKFieldStyleProtocol> *)field;
         [alignmentField setValueTextAlignment:attributeMapping.valueTextAlignment];
+        
     }
     
     if ([field isKindOfClass:[FKTextField class]]) {
         FKTextField *textCell = (FKTextField *)field;
         textCell.textField.clearsOnBeginEditing = attributeMapping.clearsOnBeginEditing;
         textCell.textField.autocorrectionType = attributeMapping.autocorrectionType;
+        
+    }
+    
+    if ([field conformsToProtocol:@protocol(FKFieldStyleProtocol)] && [field respondsToSelector:@selector(setLabelTextColor:)]) {
+        UITableViewCell <FKFieldStyleProtocol> *cell = (UITableViewCell <FKFieldStyleProtocol> *)field;
+        [cell setLabelTextColor:self.formModel.labelTextColor];
+        
+    }
+    
+    if ([field conformsToProtocol:@protocol(FKFieldStyleProtocol)] && [field respondsToSelector:@selector(setValueTextColor:)]) {
+        UITableViewCell <FKFieldStyleProtocol> *cell = (UITableViewCell <FKFieldStyleProtocol> *)field;
+        [cell setValueTextColor:self.formModel.valueTextColor];
+        
     }
 }
 
@@ -392,7 +406,7 @@
     FKFormAttributeMappingType type = attributeMapping.type;
     Class cellClass = [self cellClassWithAttributeMapping:attributeMapping];
     FKSimpleField *field = [self cellForClass:cellClass];
-
+    
     if (type == FKFormAttributeMappingTypeText) {
         [[(FKTextField *)field textField] setDelegate:self];
         [[(FKTextField *)field textField] setFormAttributeMapping:attributeMapping];
@@ -488,7 +502,7 @@
                attributeMapping.type == FKFormAttributeMappingTypeDate ||
                attributeMapping.type == FKFormAttributeMappingTypeTime) {
         NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-
+        
         if (nil != attributeMapping.dateFormat) {
             [formatter setDateFormat:attributeMapping.dateFormat];
             convertedValue = [formatter dateFromString:value];
@@ -572,7 +586,7 @@
             [currentSection addObject:[self.formMapping.attributeMappings objectForKey:identifier]];
         }
     }];
-        
+    
     _titles = [NSArray arrayWithArray:titles];
     self.sections = [NSArray arrayWithArray:sections];
 }
@@ -591,7 +605,7 @@
         id value = [self valueForAttributeMapping:attributeMapping];
         
         rowHeight += [cellClass errorHeightWithError:attributeValidation.errorMessageBlock(value, self.object)
-                                      tableView:self.tableView];
+                                           tableView:self.tableView];
     }
     
     return rowHeight;

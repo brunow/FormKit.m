@@ -18,9 +18,8 @@
 #import <UIKit/UIKit.h>
 
 #import "FKValueViewField.h"
-#import "FKFieldValueTextAligmentProtocol.h"
 
-@interface FKTextField : FKValueViewField <FKFieldValueTextAligmentProtocol> {
+@interface FKTextField : FKValueViewField {
     UITextField *_textField;
 }
 

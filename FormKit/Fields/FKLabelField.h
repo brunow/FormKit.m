@@ -19,6 +19,6 @@
 
 #import "FKSimpleField.h"
 
-@interface FKLabelField : FKSimpleField
+@interface FKLabelField : FKSimpleField <FKFieldStyleProtocol>
 
 @end

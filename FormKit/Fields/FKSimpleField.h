@@ -18,8 +18,9 @@
 #import <UIKit/UIKit.h>
 
 #import "FKFieldErrorProtocol.h"
+#import "FKFieldStyleProtocol.h"
 
-@interface FKSimpleField : UITableViewCell<FKFieldErrorProtocol>
+@interface FKSimpleField : UITableViewCell<FKFieldErrorProtocol, FKFieldStyleProtocol>
 
 @property (nonatomic, strong) UILabel *errorLabel;
 @property (nonatomic, assign) CGFloat xMargin;

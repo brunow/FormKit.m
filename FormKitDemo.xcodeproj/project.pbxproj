@@ -60,6 +60,7 @@
 		E7A022F015A9A34B00941942 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022EC15A9A34B00941942 /* Movie.m */; };
 		E7A022F515A9A5A600941942 /* FKFormMapperSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022F215A9A5A600941942 /* FKFormMapperSpecs.m */; };
 		E7A022F615A9A5A600941942 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022F415A9A5A600941942 /* Book.m */; };
+		E7F01CBA18C9E14600A5A719 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7F01CB918C9E14600A5A719 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,13 +75,12 @@
 
 /* Begin PBXFileReference section */
 		E702EAEA167B5121002225A4 /* FKFieldErrorProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FKFieldErrorProtocol.h; sourceTree = "<group>"; };
-		E70D192318BF552200FA403F /* FKFieldLabelHiddenableProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FKFieldLabelHiddenableProtocol.h; sourceTree = "<group>"; };
-		E70D192418BF601900FA403F /* FKFieldValueTextAligmentProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FKFieldValueTextAligmentProtocol.h; sourceTree = "<group>"; };
 		E721801115AB637F00C61C03 /* libKiwi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKiwi.a; path = "../dev/xcodeBuilds/Release-iphoneos/libKiwi.a"; sourceTree = "<group>"; };
 		E7504DC115C7C95A00286ACA /* FKDisclosureIndicatorAccessoryField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKDisclosureIndicatorAccessoryField.h; sourceTree = "<group>"; };
 		E7504DC215C7C95A00286ACA /* FKDisclosureIndicatorAccessoryField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKDisclosureIndicatorAccessoryField.m; sourceTree = "<group>"; };
 		E79DAEBE15E28EDD00F35937 /* FKFormAttributeValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKFormAttributeValidation.h; sourceTree = "<group>"; };
 		E79DAEBF15E28EDD00F35937 /* FKFormAttributeValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKFormAttributeValidation.m; sourceTree = "<group>"; };
+		E79FCD3F18BFDEA300EB8544 /* FKFieldStyleProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FKFieldStyleProtocol.h; sourceTree = "<group>"; };
 		E7A0215D15A98EF400941942 /* FormKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7A0216115A98EF400941942 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E7A0216315A98EF400941942 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -174,6 +174,7 @@
 		E7A022F215A9A5A600941942 /* FKFormMapperSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKFormMapperSpecs.m; sourceTree = "<group>"; };
 		E7A022F315A9A5A600941942 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
 		E7A022F415A9A5A600941942 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		E7F01CB918C9E14600A5A719 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +207,7 @@
 		E7A0215215A98EF400941942 = {
 			isa = PBXGroup;
 			children = (
+				E7F01CB918C9E14600A5A719 /* Default-568h@2x.png */,
 				E7A022F115A9A5A500941942 /* Tests */,
 				E7A022C215A994D000941942 /* Vendor */,
 				E7A0227C15A98F5F00941942 /* FormKit */,
@@ -350,8 +352,7 @@
 				E7504DC115C7C95A00286ACA /* FKDisclosureIndicatorAccessoryField.h */,
 				E7504DC215C7C95A00286ACA /* FKDisclosureIndicatorAccessoryField.m */,
 				E702EAEA167B5121002225A4 /* FKFieldErrorProtocol.h */,
-				E70D192318BF552200FA403F /* FKFieldLabelHiddenableProtocol.h */,
-				E70D192418BF601900FA403F /* FKFieldValueTextAligmentProtocol.h */,
+				E79FCD3F18BFDEA300EB8544 /* FKFieldStyleProtocol.h */,
 			);
 			path = Fields;
 			sourceTree = "<group>";
@@ -485,6 +486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7A0216E15A98EF400941942 /* InfoPlist.strings in Resources */,
+				E7F01CBA18C9E14600A5A719 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

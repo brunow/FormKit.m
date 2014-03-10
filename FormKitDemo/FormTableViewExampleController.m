@@ -39,6 +39,9 @@
     self.formModel = [FKFormModel formTableModelForTableView:self.tableView
                                         navigationController:self.navigationController];
     
+    self.formModel.labelTextColor = [UIColor blackColor];
+    self.formModel.valueTextColor = [UIColor lightGrayColor];
+    
     Movie *movie = [Movie movieWithTitle:@"Star Wars: Episode VI - Return of the Jedi"
                                  content:@"After rescuing Han Solo from the palace of Jabba the Hutt, the Rebels attempt to destroy the Second Death Star, while Luke Skywalker tries to bring his father back to the Light Side of the Force."];
     

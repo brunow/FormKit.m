@@ -33,6 +33,8 @@
 @property (nonatomic, copy, readonly) FKFormMappingDidChangeValueBlock didChangeValueBlock;
 @property (nonatomic, copy, readonly) FKFormMappingConfigureCellBlock configureCellsBlock;
 @property (nonatomic, retain) UIView *viewOrigin;
+@property (nonatomic, strong) UIColor *labelTextColor;
+@property (nonatomic, strong) UIColor *valueTextColor;
 
 /**
  A set of attribute names with invalid values.
@@ -42,15 +44,6 @@
  You should call reloadData on your table view after setting this value.
  */
 @property (nonatomic,strong) NSSet *invalidAttributes;
-
-/**
- Default text color used for the title label in table cells for attribues with valid values.
- 
- The default is black.
- 
- Not used anymore
- */
-@property (nonatomic,strong) UIColor *validationNormalColor DEPRECATED_ATTRIBUTE;
 
 /**
  Color used for the title label in table cells for attribues with invalid values.
