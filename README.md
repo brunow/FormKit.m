@@ -52,9 +52,10 @@ self.formModel.valueTextColor = [UIColor lightGrayColor];
     
     [self.formModel registerMapping:mapping];
 }];
-```
 
 [self.formModel loadFieldsWithObject:movie];
+
+```
 
 ![Form Mapping](https://github.com/brunow/FormKit.m/raw/master/form-mapping.png)
 
