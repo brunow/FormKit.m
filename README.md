@@ -18,6 +18,9 @@ Or with **Cocoapods**
 
 ```objective-c
 self.formModel = [FKFormModel formTableModelForTableView:self.tableView navigationController:self.navigationController];
+
+self.formModel.labelTextColor = [UIColor blackColor];
+self.formModel.valueTextColor = [UIColor lightGrayColor];
   
 [FKFormMapping mappingForClass:[Movie class] block:^(FKFormMapping *mapping) {
     [mapping sectionWithTitle:@"Information section" identifier:@"info"];
@@ -32,7 +35,7 @@ self.formModel = [FKFormModel formTableModelForTableView:self.tableView navigati
     [mapping mapAttribute:@"content" title:@"Content" type:FKFormAttributeMappingTypeBigText];
     
     // Select fields using a picker or pushing a selection view controller
-    [formMapping mapAttribute:@"choice"
+    [mapping mapAttribute:@"choice"
                         title:@"Choices"
                  showInPicker:NO
             selectValuesBlock:^NSArray *(id value, id object, NSInteger *selectedValueIndex){
