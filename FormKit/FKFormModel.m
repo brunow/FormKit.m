@@ -277,7 +277,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (UIView *)headerWithViewClass:(Class)klass title:(NSString *)title {
-    if (klass) {
+    if (klass && [title length] > 0) {
         id headerView = [[klass alloc] init];
         
         if ([headerView conformsToProtocol:@protocol(FKTitleHeaderViewProtocol)]) {
@@ -397,7 +397,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (self.topHeaderViewClass) {
         UIView *header = [self headerWithViewClass:self.topHeaderViewClass title:[self titleForHeaderInSection:section]];
-        return header.frame.size.height;
+        
+        if (header) {
+            return header.frame.size.height;
+        }
     }
     
     return UITableViewAutomaticDimension;
@@ -407,7 +410,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     if (self.bottomHeaderViewClass) {
         UIView *header = [self headerWithViewClass:self.bottomHeaderViewClass title:[self titleForFooterInSection:section]];
-        return header.frame.size.height;
+        
+        if (header) {
+            return header.frame.size.height;
+        }
     }
     
     return UITableViewAutomaticDimension;
