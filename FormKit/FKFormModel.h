@@ -35,6 +35,8 @@
 @property (nonatomic, retain) UIView *viewOrigin;
 @property (nonatomic, strong) UIColor *labelTextColor;
 @property (nonatomic, strong) UIColor *valueTextColor;
+@property (nonatomic, assign) Class topHeaderViewClass;
+@property (nonatomic, assign) Class bottomHeaderViewClass;
 
 /**
  A set of attribute names with invalid values.

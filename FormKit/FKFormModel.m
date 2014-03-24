@@ -27,6 +27,8 @@
 #import "BWSelectViewController.h"
 #import "UIView+FormKit.h"
 #import "BWLongTextViewController.h"
+#import "FKTitleHeaderView.h"
+#import "FKTitleHeaderViewProtocol.h"
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -52,17 +54,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation FKFormModel
-
-@synthesize tableView = _tableView;
-@synthesize formMapping = _formMapping;
-@synthesize object = _object;
-@synthesize formMapper = _formMapper;
-@synthesize navigationController = _navigationController;
-@synthesize selectControllerClass = _selectControllerClass;
-@synthesize longTextControllerClass = _longTextControllerClass;
-@synthesize didChangeValueBlock = _didChangeValueBlock;
-@synthesize configureCellsBlock = _configureCellsBlock;
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 + (id)formTableModelForTableView:(UITableView *)tableView {
@@ -284,6 +275,27 @@
     }];
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (UIView *)headerWithViewClass:(Class)klass title:(NSString *)title {
+    if (klass) {
+        id headerView = [[klass alloc] init];
+        
+        if ([headerView conformsToProtocol:@protocol(FKTitleHeaderViewProtocol)]) {
+            UIView <FKTitleHeaderViewProtocol> *headerViewWithProtocol = headerView;
+            [headerViewWithProtocol setHeaderTitle:title];
+            CGRect frame = headerViewWithProtocol.frame;
+            frame.size.width = self.tableView.frame.size.width;
+            
+            CGFloat height = [headerViewWithProtocol heightForHeaderConstrainedByWidth:frame.size.width];
+            frame.size.height = height;
+            headerViewWithProtocol.frame = frame;
+            return headerViewWithProtocol;
+        }
+    }
+    
+    return nil;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -347,6 +359,18 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return [self headerWithViewClass:self.topHeaderViewClass title:[self titleForHeaderInSection:section]];
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return [self headerWithViewClass:self.bottomHeaderViewClass title:[self titleForFooterInSection:section]];
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return [self titleForHeaderInSection:section];
 }
@@ -369,6 +393,25 @@
 #pragma mark -
 #pragma mark UITableViewDelegate
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (self.topHeaderViewClass) {
+        UIView *header = [self headerWithViewClass:self.topHeaderViewClass title:[self titleForHeaderInSection:section]];
+        return header.frame.size.height;
+    }
+    
+    return UITableViewAutomaticDimension;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (self.bottomHeaderViewClass) {
+        UIView *header = [self headerWithViewClass:self.bottomHeaderViewClass title:[self titleForFooterInSection:section]];
+        return header.frame.size.height;
+    }
+    
+    return UITableViewAutomaticDimension;
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

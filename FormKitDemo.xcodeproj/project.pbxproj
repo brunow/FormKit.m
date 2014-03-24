@@ -60,6 +60,7 @@
 		E7A022F015A9A34B00941942 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022EC15A9A34B00941942 /* Movie.m */; };
 		E7A022F515A9A5A600941942 /* FKFormMapperSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022F215A9A5A600941942 /* FKFormMapperSpecs.m */; };
 		E7A022F615A9A5A600941942 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022F415A9A5A600941942 /* Book.m */; };
+		E7EC851F18E04A80007684D2 /* FKTitleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EC851E18E04A80007684D2 /* FKTitleHeaderView.m */; };
 		E7F01CBA18C9E14600A5A719 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7F01CB918C9E14600A5A719 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
@@ -174,6 +175,9 @@
 		E7A022F215A9A5A600941942 /* FKFormMapperSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKFormMapperSpecs.m; sourceTree = "<group>"; };
 		E7A022F315A9A5A600941942 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
 		E7A022F415A9A5A600941942 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		E7EC851C18E04A3D007684D2 /* FKTitleHeaderViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FKTitleHeaderViewProtocol.h; sourceTree = "<group>"; };
+		E7EC851D18E04A80007684D2 /* FKTitleHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKTitleHeaderView.h; sourceTree = "<group>"; };
+		E7EC851E18E04A80007684D2 /* FKTitleHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKTitleHeaderView.m; sourceTree = "<group>"; };
 		E7F01CB918C9E14600A5A719 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -312,6 +316,9 @@
 				E7A022AB15A98F5F00941942 /* NSObject+FKFormAttributeMapping.m */,
 				E79DAEBE15E28EDD00F35937 /* FKFormAttributeValidation.h */,
 				E79DAEBF15E28EDD00F35937 /* FKFormAttributeValidation.m */,
+				E7EC851C18E04A3D007684D2 /* FKTitleHeaderViewProtocol.h */,
+				E7EC851D18E04A80007684D2 /* FKTitleHeaderView.h */,
+				E7EC851E18E04A80007684D2 /* FKTitleHeaderView.m */,
 			);
 			path = FormKit;
 			sourceTree = "<group>";
@@ -542,6 +549,7 @@
 				E7A022BC15A98F5F00941942 /* FKSwitchField.m in Sources */,
 				E7A022BD15A98F5F00941942 /* FKTextField.m in Sources */,
 				E7A022BE15A98F5F00941942 /* FKTextViewField.m in Sources */,
+				E7EC851F18E04A80007684D2 /* FKTitleHeaderView.m in Sources */,
 				E7A022BF15A98F5F00941942 /* FKValueViewField.m in Sources */,
 				E7A022C015A98F5F00941942 /* NSObject+FKFormAttributeMapping.m in Sources */,
 				E7A022D715A994D100941942 /* AbstractActionSheetPicker.m in Sources */,
