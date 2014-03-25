@@ -38,6 +38,7 @@
 
 @property (nonatomic, retain) FKFormMapping *formMapping;
 @property (nonatomic, retain) FKFormMapper *formMapper;
+@property (nonatomic, retain) NSMutableArray *formMappings;
 
 - (void)showTextViewControllerWithAttributeMapping:(FKFormAttributeMapping *)attributeMapping;
 
@@ -95,6 +96,8 @@
         
         self.labelTextColor = [UIColor blackColor];
         self.valueTextColor = [UIColor lightGrayColor];
+        
+        self.formMappings = [NSMutableArray array];
     }
     return self;
 }
@@ -150,7 +153,7 @@
         
     } else if (FKFormAttributeMappingTypeBigText == attributeMapping.type) {
         [self showTextViewControllerWithAttributeMapping:attributeMapping];
-
+        
     } else if (FKFormAttributeMappingTypeText == attributeMapping.type) {
         FKTextField *textFieldCell = (FKTextField *)[self cellForRowAtIndexPath:indexPath];
         [textFieldCell.textField becomeFirstResponder];
@@ -175,13 +178,29 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)registerMapping:(FKFormMapping *)formMapping {
-    self.formMapping = formMapping;
+    [self.formMappings addObject:formMapping];
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (FKFormMapping *)mappingForObject:(Class)objectClass {
+    __block FKFormMapping *mappingForObject = nil;
+    
+    [self.formMappings enumerateObjectsUsingBlock:^(FKFormMapping *mapping, NSUInteger idx, BOOL *stop) {
+        if (mapping.objectClass == objectClass) {
+            mappingForObject = mapping;
+            *stop = YES;
+        }
+    }];
+    
+    return mappingForObject;
 }
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)loadFieldsWithObject:(id)object {
     self.object = object;
+    self.formMapping = [self mappingForObject:[object class]];
     
     self.formMapper = [[FKFormMapper alloc] initWithFormMapping:self.formMapping
                                                       tabelView:self.tableView
@@ -446,7 +465,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)showTextViewControllerWithAttributeMapping:(FKFormAttributeMapping *)attributeMapping {
     Class controllerClass = (attributeMapping.controllerClass == nil) ?
-                            self.longTextControllerClass : attributeMapping.controllerClass;
+    self.longTextControllerClass : attributeMapping.controllerClass;
     
     NSString *value = [self.formMapper valueForAttributeMapping:attributeMapping];
     BWLongTextViewController *vc = [[controllerClass alloc] initWithText:value];
