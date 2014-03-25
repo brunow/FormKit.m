@@ -24,5 +24,6 @@
 }
 
 @property (nonatomic, readonly) UITextField *textField;
+@property (nonatomic, assign) Class customTextFieldClass;
 
 @end

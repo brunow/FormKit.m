@@ -30,21 +30,27 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        _textField = [[UITextField alloc] init];
-        
-#ifdef __IPHONE_6_0
-        self.textField.textAlignment = NSTextAlignmentRight;
-#else
-        self.textField.textAlignment = UITextAlignmentRight;
-#endif
+        self.customTextFieldClass = [UITextField class];
+    }
+    return self;
+}
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)setCustomTextFieldClass:(Class)customTextFieldClass {
+    if (_customTextFieldClass != customTextFieldClass) {
+        _customTextFieldClass = customTextFieldClass;
+        
+        _textField = [[self.customTextFieldClass alloc] init];
+        
+        self.textField.textAlignment = NSTextAlignmentRight;
+        
         [self.textField addTarget:self
                            action:@selector(textFieldDidChangeValue)
                  forControlEvents:UIControlEventAllEditingEvents];
         
         self.valueView = self.textField;
     }
-    return self;
 }
 
 
