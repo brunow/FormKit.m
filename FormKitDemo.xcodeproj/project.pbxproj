@@ -60,6 +60,7 @@
 		E7A022F015A9A34B00941942 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022EC15A9A34B00941942 /* Movie.m */; };
 		E7A022F515A9A5A600941942 /* FKFormMapperSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022F215A9A5A600941942 /* FKFormMapperSpecs.m */; };
 		E7A022F615A9A5A600941942 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A022F415A9A5A600941942 /* Book.m */; };
+		E7CF23FD18E1A6A600C40163 /* FKSeparatorField.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CF23FC18E1A6A600C40163 /* FKSeparatorField.m */; };
 		E7EC851F18E04A80007684D2 /* FKTitleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EC851E18E04A80007684D2 /* FKTitleHeaderView.m */; };
 		E7F01CBA18C9E14600A5A719 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7F01CB918C9E14600A5A719 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
@@ -175,6 +176,8 @@
 		E7A022F215A9A5A600941942 /* FKFormMapperSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKFormMapperSpecs.m; sourceTree = "<group>"; };
 		E7A022F315A9A5A600941942 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
 		E7A022F415A9A5A600941942 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		E7CF23FB18E1A6A600C40163 /* FKSeparatorField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKSeparatorField.h; sourceTree = "<group>"; };
+		E7CF23FC18E1A6A600C40163 /* FKSeparatorField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKSeparatorField.m; sourceTree = "<group>"; };
 		E7EC851C18E04A3D007684D2 /* FKTitleHeaderViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FKTitleHeaderViewProtocol.h; sourceTree = "<group>"; };
 		E7EC851D18E04A80007684D2 /* FKTitleHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKTitleHeaderView.h; sourceTree = "<group>"; };
 		E7EC851E18E04A80007684D2 /* FKTitleHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKTitleHeaderView.m; sourceTree = "<group>"; };
@@ -360,6 +363,8 @@
 				E7504DC215C7C95A00286ACA /* FKDisclosureIndicatorAccessoryField.m */,
 				E702EAEA167B5121002225A4 /* FKFieldErrorProtocol.h */,
 				E79FCD3F18BFDEA300EB8544 /* FKFieldStyleProtocol.h */,
+				E7CF23FB18E1A6A600C40163 /* FKSeparatorField.h */,
+				E7CF23FC18E1A6A600C40163 /* FKSeparatorField.m */,
 			);
 			path = Fields;
 			sourceTree = "<group>";
@@ -560,6 +565,7 @@
 				E7A022DC15A994D100941942 /* DistancePickerView.m in Sources */,
 				E7A022DD15A994D100941942 /* BWLongTextViewController.m in Sources */,
 				E7A022DE15A994D100941942 /* BWSelectViewController.m in Sources */,
+				E7CF23FD18E1A6A600C40163 /* FKSeparatorField.m in Sources */,
 				E7A022E115A9970E00941942 /* UITableViewCell+FormKit.m in Sources */,
 				E7A022E415A9A22E00941942 /* UIView+FormKit.m in Sources */,
 				E7A022ED15A9A34B00941942 /* Comment.m in Sources */,

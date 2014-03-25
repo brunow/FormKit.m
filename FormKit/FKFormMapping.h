@@ -43,6 +43,8 @@
 @property (nonatomic, assign) Class disclosureIndicatorAccessoryField;
 @property (nonatomic, assign) Class sliderFieldClass;
 @property (nonatomic, assign) Class buttonFieldClass;
+@property (nonatomic, assign) Class separatorFieldClass;
+@property (nonatomic, assign) CGFloat separatorMargin;
 
 - (id)initWithObjectClass:(Class)objectClass;
 

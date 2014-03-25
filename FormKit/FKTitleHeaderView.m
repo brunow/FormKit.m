@@ -31,6 +31,7 @@
         self.textLabel.backgroundColor = [UIColor clearColor];
         self.textLabel.numberOfLines = 0;
         self.textLabel.textColor = [UIColor grayColor];
+        self.backgroundColor = [UIColor colorWithRed:239/255.0f green:239/255.0f blue:239/255.0f alpha:1];
 
         [self addSubview:self.textLabel];
     }

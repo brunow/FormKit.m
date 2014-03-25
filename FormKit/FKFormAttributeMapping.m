@@ -34,6 +34,7 @@
         self.valueTextAlignment = NSTextAlignmentRight;
         self.clearsOnBeginEditing = NO;
         self.autocorrectionType = UITextAutocorrectionTypeDefault;
+        self.separatorMargin = CGFLOAT_MAX;
     }
     return self;
 }

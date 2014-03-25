@@ -36,7 +36,8 @@ typedef enum {
     FKFormAttributeMappingTypeButton = 13,
     FKFormAttributeMappingTypeSelect = 14,
     FKFormAttributeMappingTypeCustomCell = 15,
-    FKFormAttributeMappingTypeSlider = 16
+    FKFormAttributeMappingTypeSlider = 16,
+    FKFormAttributeMappingTypeSeparator = 17
 } FKFormAttributeMappingType;
 
 @interface FKFormAttributeMapping : NSObject
@@ -69,6 +70,7 @@ typedef enum {
 @property (nonatomic, assign) NSTextAlignment valueTextAlignment;
 @property (nonatomic, assign) BOOL clearsOnBeginEditing;
 @property (nonatomic, assign) UITextAutocorrectionType autocorrectionType;
+@property (nonatomic, assign) CGFloat separatorMargin;
 
 /*
  * Convenient method to get an attributeMapping

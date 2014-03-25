@@ -44,21 +44,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation FKFormMapping
 
-@synthesize objectClass = _objectClass;
-@synthesize fieldsOrder = _fieldsOrder;
-@synthesize saveAttribute = _saveAttribute;
-@synthesize textFieldClass = _textFieldClass;
-@synthesize floatFieldClass = _floatFieldClass;
-@synthesize integerFieldClass = _integerFieldClass;
-@synthesize labelFieldClass = _labelFieldClass;
-@synthesize passwordFieldClass = _passwordFieldClass;
-@synthesize switchFieldClass = _switchFieldClass;
-@synthesize saveButtonFieldClass = _saveButtonFieldClass;
-@synthesize disclosureIndicatorAccessoryField = _disclosureIndicatorAccessoryField;
-@synthesize sliderFieldClass = _sliderFieldClass;
-@synthesize buttonFieldClass = _buttonFieldClass;
-@synthesize attributeMappings = _attributeMappings;
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)init {
@@ -78,6 +63,8 @@
         _disclosureIndicatorAccessoryField = [FKDisclosureIndicatorAccessoryField class];
         _sliderFieldClass = [FKSliderField class];
         _buttonFieldClass = [FKButtonField class];
+        _separatorFieldClass = [FKSeparatorField class];
+        _separatorMargin = 0;
     }
     return self;
 }

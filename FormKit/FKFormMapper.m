@@ -194,6 +194,9 @@
             attributeMapping.willDisplayCellBlock(field, self.object, indexPath);
         }
         
+    } else if (FKFormAttributeMappingTypeSeparator == attributeMapping.type) {
+        
+        
     } else {
         id value = [self valueForAttributeMapping:attributeMapping];
         [self mapAttributeMapping:attributeMapping value:value withField:field];
@@ -235,6 +238,12 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)validateFieldWithAttribute:(NSString *)attribute {
     FKFormAttributeMapping *attributeMapping = [self.formMapping.attributeMappings objectForKey:attribute];
+    
+    // separator doesn't need to be validated ;-)
+    if (FKFormAttributeMappingTypeSeparator == attributeMapping.type) {
+        return;
+    }
+    
     id value = [self valueForAttributeMapping:attributeMapping];
     FKFormAttributeValidation *attributeValidation = [self.formMapping.attributeValidations objectForKey:attributeMapping.attribute];
     
@@ -407,6 +416,9 @@
     } else if (type == FKFormAttributeMappingTypeSlider) {
         return _formMapping.sliderFieldClass;
         
+    } else if (type == FKFormAttributeMappingTypeSeparator) {
+        return _formMapping.separatorFieldClass;
+        
     } else {
         return _formMapping.labelFieldClass;
     }
@@ -463,6 +475,8 @@
     } else if (type == FKFormAttributeMappingTypeCustomCell) {
         
     } else if (type == FKFormAttributeMappingTypeSlider) {
+        
+    } else if (type == FKFormAttributeMappingTypeSeparator) {
         
     }
     
@@ -599,7 +613,14 @@
             [sections addObject:[NSMutableArray array]];
         } else if ([self.formMapping.attributeMappings objectForKey:identifier]) {
             NSMutableArray *currentSection = [sections lastObject];
-            [currentSection addObject:[self.formMapping.attributeMappings objectForKey:identifier]];
+            FKFormAttributeMapping *attribute = [self.formMapping.attributeMappings objectForKey:identifier];
+            [currentSection addObject:attribute];
+            
+            // Separator
+            FKFormAttributeMapping *separatorAttribute = [FKFormAttributeMapping attributeMapping];
+            separatorAttribute.type = FKFormAttributeMappingTypeSeparator;
+            separatorAttribute.separatorMargin = attribute.separatorMargin;
+            [currentSection addObject:separatorAttribute];
         }
     }];
     
@@ -612,6 +633,15 @@
 - (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     FKFormAttributeMapping *attributeMapping = [self attributeMappingAtIndexPath:indexPath];
     FKFormAttributeValidation *attributeValidation = [self.formMapping.attributeValidations objectForKey:attributeMapping.attribute];
+    
+    if (FKFormAttributeMappingTypeSeparator == attributeMapping.type) {
+        if (attributeMapping.separatorMargin != CGFLOAT_MAX) {
+            return attributeMapping.separatorMargin;
+        } else {
+            return self.formMapping.separatorMargin;
+        }
+    }
+    
     CGFloat rowHeight = attributeMapping.rowHeight > 0 ? attributeMapping.rowHeight : self.tableView.rowHeight;
     
     if ([self.formModel.invalidAttributes containsObject:attributeMapping.attribute] &&
