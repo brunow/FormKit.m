@@ -25,7 +25,7 @@
 
 @interface FKFormModel : NSObject <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, retain) UITableView *tableView;
+@property (nonatomic, weak) UITableView *tableView;
 @property (nonatomic, retain) id object;
 @property (nonatomic, retain) UINavigationController *navigationController;
 @property (nonatomic, assign) Class selectControllerClass;
