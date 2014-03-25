@@ -166,12 +166,28 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+- (BOOL)canConfigureCell:(UITableViewCell *)cell attributeMapping:(FKFormAttributeMapping *)attributeMapping {
+    if (FKFormAttributeMappingTypeCustomCell == attributeMapping.type) {
+        return NO;
+    }
+    
+    if (UITableViewStylePlain == self.tableView.style && [cell isKindOfClass:[FKSaveButtonField class]]) {
+        return NO;
+    }
+    
+    return YES;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 - (UITableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FKFormAttributeMapping *attributeMapping = [self attributeMappingAtIndexPath:indexPath];
     Class sourceClass = [self classFromSourcePropertyAtIndexPath:indexPath keyPath:attributeMapping.attribute];
     UITableViewCell *field = [self cellWithAttributeMapping:attributeMapping sourceClass:sourceClass];
     
-    [self configureField:field withMapping:attributeMapping];
+    if ([self canConfigureCell:field attributeMapping:attributeMapping]) {
+        [self configureField:field withMapping:attributeMapping];
+    }
     
     if (FKFormAttributeMappingTypeCustomCell == attributeMapping.type) {
         if (nil != attributeMapping.willDisplayCellBlock) {
@@ -460,7 +476,7 @@
     
     if (attributeMapping.type == FKFormAttributeMappingTypeInteger) {
         NSInteger integerValue = [(NSNumber *)value integerValue];
-        convertedValue = [NSString stringWithFormat:@"%d", integerValue];
+        convertedValue = [NSString stringWithFormat:@"%ld", (long)integerValue];
         
     } else if (attributeMapping.type == FKFormAttributeMappingTypeFloat) {
         float floatValue = [(NSNumber *)value floatValue];
