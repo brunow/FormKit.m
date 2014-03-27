@@ -199,6 +199,8 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)loadFieldsWithObject:(id)object {
+    [[self.tableView fk_findFirstResponder] resignFirstResponder];
+    
     self.object = object;
     self.formMapping = [self mappingForObject:[object class]];
     
