@@ -231,6 +231,14 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)valueForAttributeMapping:(FKFormAttributeMapping *)attributeMapping {
+    if (FKFormAttributeMappingTypeButton == attributeMapping.type ||
+        FKFormAttributeMappingTypeCustomCell == attributeMapping.type ||
+        FKFormAttributeMappingTypeSeparator == attributeMapping.type ||
+        FKFormAttributeMappingTypeSaveButton == attributeMapping.type) {
+        
+        return nil;
+    }
+    
     return [self valueOfObjectForKeyPath:attributeMapping.attribute];
 }
 
