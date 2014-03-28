@@ -105,6 +105,8 @@
 
 - (void)validateForm;
 
+- (BOOL)isFormValid;
+
 - (void)validateFieldWithIdentifier:(NSString *)identifier;
 
 @end

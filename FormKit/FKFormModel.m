@@ -199,6 +199,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)loadFieldsWithObject:(id)object {
+    self.invalidAttributes = nil;
     [[self.tableView fk_findFirstResponder] resignFirstResponder];
     
     self.object = object;
@@ -286,9 +287,17 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)validateForm {
+    [[self findFirstTextField] resignFirstResponder];
+    
     [self.formMapping.attributeValidations enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [self.formMapper validateFieldWithAttribute:key];
     }];
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+- (BOOL)isFormValid {
+    [self validateForm];
+    return [self.invalidAttributes count] == 0;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
