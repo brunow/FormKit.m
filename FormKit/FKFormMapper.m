@@ -148,6 +148,7 @@
         FKTextField *textCell = (FKTextField *)field;
         textCell.textField.clearsOnBeginEditing = attributeMapping.clearsOnBeginEditing;
         textCell.textField.autocorrectionType = attributeMapping.autocorrectionType;
+        textCell.textField.autocapitalizationType = attributeMapping.autocapitalizationType;
         
     }
     

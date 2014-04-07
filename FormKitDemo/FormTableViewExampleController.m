@@ -65,6 +65,7 @@
             mapping.type = FKFormAttributeMappingTypeText;
             mapping.valueTextAlignment = NSTextAlignmentLeft;
             mapping.placeholderText = @"Subtitle";
+            mapping.autocapitalizationType = UITextAutocapitalizationTypeNone;
         }];
         
 //        [formMapping mapAttribute:@"releaseDate" title:@"ReleaseDate" type:FKFormAttributeMappingTypeDate dateFormat:@"yyyy-MM-dd HH:mm:ss"];
