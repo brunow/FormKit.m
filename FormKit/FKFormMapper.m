@@ -193,6 +193,9 @@
     if (FKFormAttributeMappingTypeCustomCell == attributeMapping.type) {
         if (nil != attributeMapping.willDisplayCellBlock) {
             attributeMapping.willDisplayCellBlock(field, self.object, indexPath);
+            
+        } else if (nil != attributeMapping.willDisplayCellWithDataBlock) {
+            attributeMapping.willDisplayCellWithDataBlock(field, self.object, indexPath, attributeMapping.blockData);
         }
         
     } else if (FKFormAttributeMappingTypeSeparator == attributeMapping.type) {

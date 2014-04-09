@@ -48,3 +48,7 @@ typedef BOOL(^FKFormMappingIsValueValidBlock)(id value, id object);
 typedef NSString *(^FKFormMappingFieldErrorStringBlock)(id value, id object);
 
 typedef void(^FKFormMappingAttributeConfigurationBlock)(FKFormAttributeMapping *mapping);
+
+typedef void(^FKFormMappingWillDisplayCellWithDataBlock)(UITableViewCell *cell, id object, NSIndexPath *indexPath, id data);
+
+typedef void(^FKFormMappingCellSelectionWithDataBlock)(UITableViewCell *cell, id object, NSIndexPath *indexPath, id data);

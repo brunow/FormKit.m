@@ -57,6 +57,8 @@ typedef enum {
 @property (nonatomic, copy) FKFormMappingSelectLabelValueBlock labelValueBlock;
 @property (nonatomic, copy) FKFormMappingWillDisplayCellBlock willDisplayCellBlock;
 @property (nonatomic, copy) FKFormMappingCellSelectionBlock cellSelectionBlock;
+@property (nonatomic, copy) FKFormMappingWillDisplayCellWithDataBlock willDisplayCellWithDataBlock;
+@property (nonatomic, copy) FKFormMappingCellSelectionWithDataBlock cellSelectionWithDataBlock;
 @property (nonatomic, assign) Class customCell;
 @property (nonatomic, assign) CGFloat rowHeight;
 @property (nonatomic, assign) Class controllerClass;
@@ -72,6 +74,7 @@ typedef enum {
 @property (nonatomic, assign) UITextAutocorrectionType autocorrectionType;
 @property (nonatomic, assign) UITextAutocapitalizationType autocapitalizationType;
 @property (nonatomic, assign) CGFloat separatorMargin;
+@property (nonatomic, strong) id blockData;
 
 /*
  * Convenient method to get an attributeMapping

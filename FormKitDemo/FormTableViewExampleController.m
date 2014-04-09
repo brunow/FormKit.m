@@ -108,10 +108,12 @@
         [formMapping mapCustomCell:[FKDisclosureIndicatorAccessoryField class]
                         identifier:@"custom"
                          rowHeight:70
-              willDisplayCellBlock:^(UITableViewCell *cell, id object, NSIndexPath *indexPath) {
-                  cell.textLabel.text = @"I am a custom cell !";
+                         blockData:@(1)
+              willDisplayCellBlock:^(UITableViewCell *cell, id object, NSIndexPath *indexPath, id blockData) {
+                  cell.textLabel.text = [NSString stringWithFormat:@"I am a custom cell ! With blockData %@", [blockData description]];
+                  cell.textLabel.numberOfLines = 0;
                   
-              }     didSelectBlock:^(UITableViewCell *cell, id object, NSIndexPath *indexPath) {
+              }     didSelectBlock:^(UITableViewCell *cell, id object, NSIndexPath *indexPath, id blockData) {
                   NSLog(@"You pressed me");
                   
               }];

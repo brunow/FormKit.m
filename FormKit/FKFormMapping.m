@@ -258,6 +258,28 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+- (FKFormAttributeMapping *)mapCustomCell:(Class)cell
+                               identifier:(NSString *)identifier
+                                rowHeight:(CGFloat)rowHeight
+                                blockData:(id)data
+                     willDisplayCellBlock:(FKFormMappingWillDisplayCellWithDataBlock)willDisplayCellBlock
+                           didSelectBlock:(FKFormMappingCellSelectionWithDataBlock)selectionBlock {
+    
+    FKFormAttributeMapping *attributeMapping = [self attributeMappingWithTitle:nil
+                                                                     attribute:identifier
+                                                                          type:FKFormAttributeMappingTypeCustomCell];
+    
+    attributeMapping.willDisplayCellWithDataBlock = willDisplayCellBlock;;
+    attributeMapping.cellSelectionWithDataBlock = selectionBlock;
+    attributeMapping.customCell = cell;
+    attributeMapping.rowHeight = rowHeight;
+    attributeMapping.blockData = data;
+    
+    return attributeMapping;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 - (FKFormAttributeMapping *)button:(NSString *)title
                         identifier:(NSString *)identifier
                            handler:(FKFormMappingButtonHandlerBlock)blockHandler

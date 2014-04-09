@@ -165,9 +165,13 @@
         [self showDatePickerWithAttributeMapping:attributeMapping];
         
     } else if (FKFormAttributeMappingTypeCustomCell == attributeMapping.type) {
+        UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
+        
         if (nil != attributeMapping.cellSelectionBlock) {
-            UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
             attributeMapping.cellSelectionBlock(cell, self.object, indexPath);
+            
+        } else if (nil != attributeMapping.cellSelectionWithDataBlock) {
+            attributeMapping.cellSelectionWithDataBlock(cell, self.object, indexPath, attributeMapping.blockData);
         }
         
     }

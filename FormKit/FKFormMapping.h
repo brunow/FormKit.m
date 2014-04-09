@@ -105,6 +105,13 @@
                      willDisplayCellBlock:(FKFormMappingWillDisplayCellBlock)willDisplayCellBlock
                            didSelectBlock:(FKFormMappingCellSelectionBlock)selectionBlock;
 
+- (FKFormAttributeMapping *)mapCustomCell:(Class)cell
+                               identifier:(NSString *)identifier
+                                rowHeight:(CGFloat)rowHeight
+                               blockData:(id)data
+                     willDisplayCellBlock:(FKFormMappingWillDisplayCellWithDataBlock)willDisplayCellBlock
+                           didSelectBlock:(FKFormMappingCellSelectionWithDataBlock)selectionBlock;
+
 - (void)sectionWithTitle:(NSString *)title identifier:(NSString *)identifier;
 
 - (void)sectionWithTitle:(NSString *)title footer:(NSString *)footer identifier:(NSString *)identifier;
