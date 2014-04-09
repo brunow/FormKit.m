@@ -56,6 +56,7 @@
 - (void)prepareForReuse {
     [super prepareForReuse];
     
+    [self.slider removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
     self.slider.value = 0;
 }
 

@@ -43,6 +43,8 @@
 - (void)prepareForReuse {
     [super prepareForReuse];
     
+    [self.switchControl removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+    
     self.switchControl.on = NO;
 }
 

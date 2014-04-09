@@ -58,6 +58,7 @@
 - (void)prepareForReuse {
     [super prepareForReuse];
     
+    [self.textField removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
     self.textField.placeholder = nil;
     self.textField.text = nil;
     self.textField.delegate = nil;
