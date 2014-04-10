@@ -182,6 +182,18 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)registerMapping:(FKFormMapping *)formMapping {
+    __block FKFormMapping *mappingToDelete = nil;
+    [self.formMappings enumerateObjectsUsingBlock:^(FKFormMapping *previousMapping, NSUInteger idx, BOOL *stop) {
+        if (previousMapping.class == formMapping.class) {
+            mappingToDelete = previousMapping;
+            *stop = YES;
+        }
+    }];
+    
+    if (mappingToDelete) {
+        [self.formMappings removeObject:mappingToDelete];
+    }
+    
     [self.formMappings addObject:formMapping];
 }
 
