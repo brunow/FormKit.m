@@ -10,7 +10,7 @@ Everything looks good on iPhone and iPad for iOS versions 6+.
 
 **Copy FormKit** dir into your project.
 
-Or with **Cocoapods**
+Or with **CocoaPods**
 
 	pod 'FormKit.m'
 
