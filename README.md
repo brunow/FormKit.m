@@ -12,7 +12,7 @@ Everything looks good on iPhone and iPad for iOS versions 6+.
 
 Or with **Cocoapods**
 
-	pod 'FormKit.m', :git => "https://github.com/brunow/FormKit.m.git", :tag => "0.4.0"
+	pod 'FormKit.m'
 
 ## Example code
 
