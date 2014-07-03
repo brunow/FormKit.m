@@ -684,8 +684,11 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)sliderFieldValueDidChange:(UISlider *)sender {
-    [self setValue:[NSNumber numberWithFloat:sender.value] forAttributeMapping:sender.formAttributeMapping];
-    [self.formModel reloadRowWithAttributeMapping:sender.formAttributeMapping];
+    id value = [NSNumber numberWithFloat:sender.value];
+    [self setValue:value forAttributeMapping:sender.formAttributeMapping];
+    UITableViewCell *sliderCell = [self.formModel.tableView cellForRowAtIndexPath:[self indexPathOfAttributeMapping:sender.formAttributeMapping]];
+    sliderCell.detailTextLabel.text = sender.formAttributeMapping.sliderValueBlock(value);
+    [sliderCell setNeedsLayout];
 }
 
 
