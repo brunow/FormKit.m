@@ -655,6 +655,9 @@
     }
     
     CGFloat rowHeight = attributeMapping.rowHeight > 0 ? attributeMapping.rowHeight : self.tableView.rowHeight;
+    if (rowHeight == UITableViewAutomaticDimension) {
+        rowHeight = 44;
+    }
     
     if ([self.formModel.invalidAttributes containsObject:attributeMapping.attribute] &&
         nil != attributeValidation.errorMessageBlock) {
