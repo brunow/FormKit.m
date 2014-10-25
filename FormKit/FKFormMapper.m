@@ -655,9 +655,6 @@
     }
     
     CGFloat rowHeight = attributeMapping.rowHeight > 0 ? attributeMapping.rowHeight : self.tableView.rowHeight;
-    if (rowHeight == UITableViewAutomaticDimension) {
-        rowHeight = 44;
-    }
     
     if ([self.formModel.invalidAttributes containsObject:attributeMapping.attribute] &&
         nil != attributeValidation.errorMessageBlock) {
@@ -665,6 +662,9 @@
         Class<FKFieldErrorProtocol> cellClass = [self cellClassWithAttributeMapping:attributeMapping];
         id value = [self valueForAttributeMapping:attributeMapping];
         
+        if (rowHeight == UITableViewAutomaticDimension) {
+            rowHeight = 44;
+        }
         rowHeight += [cellClass errorHeightWithError:attributeValidation.errorMessageBlock(value, self.object)
                                            tableView:self.tableView];
     }
