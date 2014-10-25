@@ -662,6 +662,9 @@
         Class<FKFieldErrorProtocol> cellClass = [self cellClassWithAttributeMapping:attributeMapping];
         id value = [self valueForAttributeMapping:attributeMapping];
         
+        if (rowHeight == UITableViewAutomaticDimension) {
+            rowHeight = 44;
+        }
         rowHeight += [cellClass errorHeightWithError:attributeValidation.errorMessageBlock(value, self.object)
                                            tableView:self.tableView];
     }
