@@ -33,18 +33,14 @@
 @end
 
 @implementation ActionSheetStringPicker
-@synthesize data = _data;
-@synthesize selectedIndex = _selectedIndex;
-@synthesize onActionSheetDone = _onActionSheetDone;
-@synthesize onActionSheetCancel = _onActionSheetCancel;
 
-+ (id)showPickerWithTitle:(NSString *)title rows:(NSArray *)strings initialSelection:(NSInteger)index doneBlock:(ActionStringDoneBlock)doneBlock cancelBlock:(ActionStringCancelBlock)cancelBlockOrNil origin:(id)origin {
++ (instancetype)showPickerWithTitle:(NSString *)title rows:(NSArray *)strings initialSelection:(NSInteger)index doneBlock:(ActionStringDoneBlock)doneBlock cancelBlock:(ActionStringCancelBlock)cancelBlockOrNil origin:(id)origin {
     ActionSheetStringPicker * picker = [[ActionSheetStringPicker alloc] initWithTitle:title rows:strings initialSelection:index doneBlock:doneBlock cancelBlock:cancelBlockOrNil origin:origin];
     [picker showActionSheetPicker];
     return picker;
 }
 
-- (id)initWithTitle:(NSString *)title rows:(NSArray *)strings initialSelection:(NSInteger)index doneBlock:(ActionStringDoneBlock)doneBlock cancelBlock:(ActionStringCancelBlock)cancelBlockOrNil origin:(id)origin {
+- (instancetype)initWithTitle:(NSString *)title rows:(NSArray *)strings initialSelection:(NSInteger)index doneBlock:(ActionStringDoneBlock)doneBlock cancelBlock:(ActionStringCancelBlock)cancelBlockOrNil origin:(id)origin {
     self = [self initWithTitle:title rows:strings initialSelection:index target:nil successAction:nil cancelAction:nil origin:origin];
     if (self) {
         self.onActionSheetDone = doneBlock;
@@ -53,13 +49,13 @@
     return self;
 }
 
-+ (id)showPickerWithTitle:(NSString *)title rows:(NSArray *)data initialSelection:(NSInteger)index target:(id)target successAction:(SEL)successAction cancelAction:(SEL)cancelActionOrNil origin:(id)origin {
++ (instancetype)showPickerWithTitle:(NSString *)title rows:(NSArray *)data initialSelection:(NSInteger)index target:(id)target successAction:(SEL)successAction cancelAction:(SEL)cancelActionOrNil origin:(id)origin {
     ActionSheetStringPicker *picker = [[ActionSheetStringPicker alloc] initWithTitle:title rows:data initialSelection:index target:target successAction:successAction cancelAction:cancelActionOrNil origin:origin];
     [picker showActionSheetPicker];
     return picker;
 }
 
-- (id)initWithTitle:(NSString *)title rows:(NSArray *)data initialSelection:(NSInteger)index target:(id)target successAction:(SEL)successAction cancelAction:(SEL)cancelActionOrNil origin:(id)origin {
+- (instancetype)initWithTitle:(NSString *)title rows:(NSArray *)data initialSelection:(NSInteger)index target:(id)target successAction:(SEL)successAction cancelAction:(SEL)cancelActionOrNil origin:(id)origin {
     self = [self initWithTarget:target successAction:successAction cancelAction:cancelActionOrNil origin:origin];
     if (self) {
         self.data = data;
@@ -77,8 +73,14 @@
     UIPickerView *stringPicker = [[UIPickerView alloc] initWithFrame:pickerFrame];
     stringPicker.delegate = self;
     stringPicker.dataSource = self;
-    stringPicker.showsSelectionIndicator = YES;
     [stringPicker selectRow:self.selectedIndex inComponent:0 animated:NO];
+    if (self.data.count == 0) {
+        stringPicker.showsSelectionIndicator = NO;
+        stringPicker.userInteractionEnabled = NO;
+    } else {
+        stringPicker.showsSelectionIndicator = YES;
+        stringPicker.userInteractionEnabled = YES;
+    }
     
     //need to keep a reference to the picker so we can clear the DataSource / Delegate when dismissing
     self.pickerView = stringPicker;
@@ -88,13 +90,14 @@
 
 - (void)notifyTarget:(id)target didSucceedWithAction:(SEL)successAction origin:(id)origin {    
     if (self.onActionSheetDone) {
-        _onActionSheetDone(self, self.selectedIndex, [self.data objectAtIndex:self.selectedIndex]);
+        id selectedObject = (self.data.count > 0) ? (self.data)[(NSUInteger) self.selectedIndex] : nil;
+        _onActionSheetDone(self, self.selectedIndex, selectedObject);
         return;
     }
     else if (target && [target respondsToSelector:successAction]) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        [target performSelector:successAction withObject:[NSNumber numberWithInt:self.selectedIndex] withObject:origin];
+        [target performSelector:successAction withObject:@(self.selectedIndex) withObject:origin];
 #pragma clang diagnostic pop
         return;
     }
@@ -129,7 +132,19 @@
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [self.data objectAtIndex:row];
+    id obj = (self.data)[(NSUInteger) row];
+
+    // return the object if it is already a NSString,
+    // otherwise, return the description, just like the toString() method in Java
+    // else, return nil to prevent exception
+
+    if ([obj isKindOfClass:[NSString class]])
+        return obj;
+
+    if ([obj respondsToSelector:@selector(description)])
+        return [obj performSelector:@selector(description)];
+
+    return nil;
 }
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
