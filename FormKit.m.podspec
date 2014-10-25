@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
   s.source_files = 'FormKit/*.{h,m}', 'FormKit/Fields/*.{h,m}'
   s.requires_arc = true
   s.dependency 'BWLongTextViewController', '~> 1.0'
-  s.dependency 'ActionSheetPicker2', '~> 0.1'
+  s.dependency 'ActionSheetPicker-3.0', '~> 1.2.0'
   s.dependency 'BWSelectViewController'
 end
